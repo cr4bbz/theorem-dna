@@ -11,9 +11,11 @@
     "notes": "The source paper states that the framework is encoded in Coq/Rocq 8.18.0."
   },
   "locator": {
-    "status": "pending",
-    "source": "doi:10.1007/s11225-026-10239-8",
-    "notes": "No public repository or archive URL is registered yet in this project; the artifact is therefore tracked as source-described until an upstream locator and revision can be pinned."
+    "status": "located",
+    "source": "https://anthopeigne.github.io/A-general-formalised-framework-for-reasoning-about-display-calculi/toc.html",
+    "url": "https://github.com/anthopeigne/A-general-formalised-framework-for-reasoning-about-display-calculi",
+    "revision": "3c92df8b272acad87a2fdbc3ed2fcece0c18486d",
+    "notes": "The public documentation page links to the project repository. The revision pins the main branch as observed during registration."
   },
   "claims": [
     {
@@ -45,8 +47,8 @@
   "integration_targets": [
     {
       "id": "pin_upstream_locator_and_revision",
-      "status": "pending",
-      "description": "Locate the public upstream proof environment, then pin URL, revision, and artifact hashes."
+      "status": "verified",
+      "description": "The public documentation page and GitHub repository have been located, and the main branch revision has been pinned."
     },
     {
       "id": "verify_upstream_build",
@@ -74,8 +76,8 @@
       },
       {
         "id": "upstream_checkout",
-        "status": "pending",
-        "description": "Pending until a public locator and revision are pinned."
+        "status": "passed",
+        "description": "The public GitHub repository is reachable and its main branch revision is pinned."
       },
       {
         "id": "upstream_rocq_build",

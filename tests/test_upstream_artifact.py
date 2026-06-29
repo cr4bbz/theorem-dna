@@ -38,6 +38,7 @@ def test_upstream_artifact_requires_registered_source_paper():
 def test_located_upstream_artifact_requires_url():
     artifact = load_valid_artifact()
     artifact["locator"]["status"] = "located"
+    del artifact["locator"]["url"]
 
     with pytest.raises(UpstreamArtifactError, match="requires a url"):
         validate_upstream_artifact(artifact, ROOT)
@@ -45,6 +46,7 @@ def test_located_upstream_artifact_requires_url():
 
 def test_pending_upstream_artifact_cannot_pin_revision():
     artifact = load_valid_artifact()
+    artifact["locator"]["status"] = "pending"
     artifact["locator"]["revision"] = "abc123"
 
     with pytest.raises(UpstreamArtifactError, match="cannot pin a revision"):

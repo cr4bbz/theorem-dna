@@ -136,9 +136,10 @@ Current slice:
 - `schema/upstream_artifact.schema.json` and
   `data/upstream_artifacts/display-calculus-rocq-v0.json` register the
   upstream Coq/Rocq 8.18.0 display-calculus proof environment described by the
-  source paper;
+  source paper, including the public documentation page, GitHub repository, and
+  pinned main-branch revision;
 - `tools/theorem_dna/upstream_artifact.py` validates cross-file constraints,
-  including that registered artifacts cite known source papers and do not pin
-  revisions before a public locator is known;
+  including that registered artifacts cite known source papers and only pin
+  revisions after a public locator is known;
 - the CPL cut-elimination/decidability reproduction remains the next
-  integration target after an upstream checkout URL and revision are pinned.
+  integration target after the upstream Rocq build is reproduced locally.
