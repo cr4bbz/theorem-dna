@@ -1,0 +1,22 @@
+name: Corollary
+description: Propose or verify a derived corollary
+title: "[Corollary]: "
+labels: ["type:corollary", "status:needs-review"]
+body:
+  - type: textarea
+    id: generated_from
+    attributes:
+      label: Generated from
+      description: List axioms, definitions, lemmata, or theorem IDs.
+    validations:
+      required: true
+  - type: textarea
+    id: candidate
+    attributes:
+      label: Candidate corollary
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification notes
