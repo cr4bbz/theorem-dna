@@ -6,6 +6,9 @@ def FormulaSet (Formula : Type) : Type :=
 def singleton {Formula : Type} (formula : Formula) : FormulaSet Formula :=
   fun candidate => candidate = formula
 
+def pairSet {Formula : Type} (left right : Formula) : FormulaSet Formula :=
+  fun candidate => candidate = left ∨ candidate = right
+
 structure Consequence (Formula : Type) where
   entails : FormulaSet Formula -> Formula -> Prop
 
@@ -27,6 +30,9 @@ structure SelfextensionalConsequence (Formula : Type) extends Consequence Formul
 structure NormativeSystem (Formula : Type) where
   norms : Formula -> Formula -> Prop
 
+def PermissionSystem (Formula : Type) : Type :=
+  Formula -> Formula -> Prop
+
 def DirectlyTriggered {Formula : Type} (system : NormativeSystem Formula)
     (inputs : FormulaSet Formula) (output : Formula) : Prop :=
   ∃ input, inputs input ∧ system.norms input output
@@ -45,9 +51,42 @@ def negativePermission {Formula : Type} (negation : Negation Formula)
     (obligatory : Formula -> Prop) (formula : Formula) : Prop :=
   ¬ obligatory (negation.neg formula)
 
+def ConditionalNegativePermission {Formula : Type} (negation : Negation Formula)
+    (system : NormativeSystem Formula) : PermissionSystem Formula :=
+  fun condition formula => ¬ system.norms condition (negation.neg formula)
+
 def dualNegativePermission {Formula : Type} (negation : Negation Formula)
     (forbidden : Formula -> Prop) (formula : Formula) : Prop :=
   ¬ forbidden formula ∧ ¬ forbidden (negation.neg formula)
+
+def Inconsistent {Formula : Type} (logic : Consequence Formula)
+    (left right : Formula) : Prop :=
+  ∀ conclusion, logic.entails (pairSet left right) conclusion
+
+def NormsClosedUnderWeakeningOutput {Formula : Type}
+    (logic : Consequence Formula) (system : NormativeSystem Formula) : Prop :=
+  ∀ {condition source target},
+    system.norms condition source ->
+    logic.entails (singleton source) target ->
+    system.norms condition target
+
+def CompatiblePermission {Formula : Type} (logic : Consequence Formula)
+    (system : NormativeSystem Formula) (permission : PermissionSystem Formula) :
+    Prop :=
+  ∀ {condition permitted obligatory},
+    permission condition permitted ->
+    system.norms condition obligatory ->
+    ¬ Inconsistent logic permitted obligatory
+
+def LargestCompatiblePermission {Formula : Type} (logic : Consequence Formula)
+    (system : NormativeSystem Formula) (permission : PermissionSystem Formula) :
+    Prop :=
+  CompatiblePermission logic system permission ∧
+    ∀ otherPermission,
+      CompatiblePermission logic system otherPermission ->
+      ∀ {condition formula},
+        otherPermission condition formula ->
+        permission condition formula
 
 theorem simpleOutput_contains_direct_outputs {Formula : Type}
     (logic : Consequence Formula)
@@ -74,6 +113,43 @@ theorem dualNegativePermission_left {Formula : Type}
     (permission : dualNegativePermission negation forbidden formula) :
     ¬ forbidden formula := by
   exact permission.left
+
+theorem conditionalNegativePermission_compatible {Formula : Type}
+    (logic : Consequence Formula)
+    (negation : Negation Formula)
+    (system : NormativeSystem Formula)
+    (weakeningOutput : NormsClosedUnderWeakeningOutput logic system)
+    (inconsistencyEntailsContrary :
+      ∀ permitted obligatory,
+        Inconsistent logic permitted obligatory ->
+        logic.entails (singleton obligatory) (negation.neg permitted)) :
+    CompatiblePermission logic system
+      (ConditionalNegativePermission negation system) := by
+  intro condition permitted obligatory permission obligation inconsistent
+  exact permission
+    (weakeningOutput obligation
+      (inconsistencyEntailsContrary permitted obligatory inconsistent))
+
+theorem conditionalNegativePermission_largest {Formula : Type}
+    (logic : Consequence Formula)
+    (negation : Negation Formula)
+    (system : NormativeSystem Formula)
+    (weakeningOutput : NormsClosedUnderWeakeningOutput logic system)
+    (inconsistencyEntailsContrary :
+      ∀ permitted obligatory,
+        Inconsistent logic permitted obligatory ->
+        logic.entails (singleton obligatory) (negation.neg permitted))
+    (contrariesInconsistent :
+      ∀ formula, Inconsistent logic formula (negation.neg formula)) :
+    LargestCompatiblePermission logic system
+      (ConditionalNegativePermission negation system) := by
+  constructor
+  · exact conditionalNegativePermission_compatible
+      logic negation system weakeningOutput inconsistencyEntailsContrary
+  · intro otherPermission compatible condition formula otherPermitted
+    intro contraryObligation
+    exact compatible otherPermitted contraryObligation
+      (contrariesInconsistent formula)
 
 def BooleanConsequence : Consequence Bool where
   entails premises conclusion :=

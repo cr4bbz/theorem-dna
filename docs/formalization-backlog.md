@@ -25,7 +25,11 @@ Current slice:
   abstract consequence relation, closure operator, normative systems, simple
   output, the first two permission families, a Boolean/classical
   selfextensional instance, and a small three-valued preorder/nonclassical
-  selfextensional instance.
+  selfextensional instance;
+- Proposition 2.6 is represented as a parameterized Lean theorem: under
+  weakening of output, inconsistency-to-contrary entailment, and contrary
+  inconsistency, conditional negative permission is the largest permission system
+  compatible with the obligations of a normative system.
 
 Acceptance:
 

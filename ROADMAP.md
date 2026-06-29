@@ -46,7 +46,8 @@
 - [x] Type-check abstract Lean core for consequence, closure, norms, and negative permissions
 - [x] Verify classical instance for selfextensional normative and permission systems
 - [x] Verify at least one nonclassical instance for selfextensional normative and permission systems
-- [ ] Represent or prove Propositions 2.6 and 4.2-4.4, replacing current scoped-out markers
+- [x] Represent Proposition 2.6 as a parameterized Lean theorem
+- [ ] Represent or prove Propositions 4.2-4.4, replacing current scoped-out markers
 - [ ] Separate action and state deontic languages with bridge principles
 - [ ] Add a sound logic-import calculus
 - [ ] Add ADeL0 as the first deontic action logic profile

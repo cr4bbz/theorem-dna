@@ -63,7 +63,7 @@
     {
       "id": "negative_permission",
       "status": "represented",
-      "description": "Permission by absence of the contrary obligation."
+      "description": "Permission by absence of the contrary obligation, with the Proposition 2.6 maximality characterization represented abstractly."
     },
     {
       "id": "dual_negative_permission",
@@ -85,8 +85,8 @@
     {
       "id": "proposition_2.6",
       "source": "doi:10.1007/s11229-025-05207-z",
-      "status": "scoped-out",
-      "reason": "Needs the complete paper-specific closure assumptions; this slice only installs the abstract vocabulary."
+      "status": "represented",
+      "reason": "Represented as a parameterized Lean theorem: under weakening of output, inconsistency-to-contrary entailment, and contrary inconsistency, conditional negative permission is the largest compatible permission system."
     },
     {
       "id": "proposition_4.2",
@@ -117,6 +117,11 @@
         "TheoremDNA.LogicProfiles.Selfextensional.simpleOutput",
         "TheoremDNA.LogicProfiles.Selfextensional.negativePermission",
         "TheoremDNA.LogicProfiles.Selfextensional.dualNegativePermission",
+        "TheoremDNA.LogicProfiles.Selfextensional.ConditionalNegativePermission",
+        "TheoremDNA.LogicProfiles.Selfextensional.CompatiblePermission",
+        "TheoremDNA.LogicProfiles.Selfextensional.LargestCompatiblePermission",
+        "TheoremDNA.LogicProfiles.Selfextensional.conditionalNegativePermission_compatible",
+        "TheoremDNA.LogicProfiles.Selfextensional.conditionalNegativePermission_largest",
         "TheoremDNA.LogicProfiles.Selfextensional.booleanConsequence_selfextensional",
         "TheoremDNA.LogicProfiles.Selfextensional.preorderConsequence_selfextensional",
         "TheoremDNA.LogicProfiles.Selfextensional.ThreeValuedConsequence"
