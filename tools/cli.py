@@ -4,7 +4,8 @@ import argparse
 import json
 from pathlib import Path
 
-from theorem_dna.hash import canonical_json, hash_text
+from theorem_dna.generate import write_generated_dna
+from theorem_dna.hash import hash_json
 
 
 def main() -> None:
@@ -14,12 +15,20 @@ def main() -> None:
     h = sub.add_parser("hash-json")
     h.add_argument("path")
 
+    generate = sub.add_parser("generate-dna")
+    generate.add_argument("manifest")
+    generate.add_argument("output")
+    generate.add_argument("--root", default=".")
+
     args = parser.parse_args()
 
     if args.cmd == "hash-json":
         path = Path(args.path)
         value = json.loads(path.read_text(encoding="utf-8"))
-        print(hash_text(canonical_json(value)))
+        print(hash_json(value))
+    elif args.cmd == "generate-dna":
+        root = Path(args.root).resolve()
+        write_generated_dna(root, Path(args.manifest).resolve(), Path(args.output).resolve())
 
 
 if __name__ == "__main__":

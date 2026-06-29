@@ -1,0 +1,26 @@
+{
+  "id": "claim:obligation-implies-permission:v1",
+  "kind": "theorem",
+  "claim_file": "examples/deontic_obligation_permission/claims.json",
+  "claim_id": "claim:obligation-implies-permission:v1",
+  "logic_profile_file": "data/logic_profiles/minimal-deontic-v0.json",
+  "formula": "∀ w, Obl w → Perm w",
+  "context": [
+    "logic-profile:minimal-deontic-v0",
+    "axiom:obligation_implies_permission"
+  ],
+  "dependencies": [
+    "axiom:obligation_implies_permission"
+  ],
+  "proofs": {
+    "lean4": {
+      "status": "not_attempted"
+    },
+    "isabelle_hol": {
+      "status": "not_attempted"
+    },
+    "rocq": {
+      "status": "not_attempted"
+    }
+  }
+}

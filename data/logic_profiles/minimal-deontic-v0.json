@@ -1,0 +1,13 @@
+{
+  "id": "minimal-deontic-v0",
+  "name": "Minimal Deontic Logic Profile",
+  "status": "draft",
+  "meta_logic": "classical-higher-order-logic",
+  "primitive_predicates": [
+    "Obl",
+    "Perm"
+  ],
+  "axioms": [
+    "obligation_implies_permission"
+  ]
+}

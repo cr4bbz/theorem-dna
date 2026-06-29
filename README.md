@@ -48,7 +48,16 @@ tests/      Unit tests for schema and ledger logic
 ## Bootstrap
 
 ```bash
-python -m pytest tests
+python -m pip install -e ".[test]"
+python -m pytest
+```
+
+Regenerate the genesis DNA record:
+
+```bash
+python tools/cli.py generate-dna \
+  examples/deontic_obligation_permission/dna.manifest.json \
+  examples/deontic_obligation_permission/dna.json
 ```
 
 Lean build:

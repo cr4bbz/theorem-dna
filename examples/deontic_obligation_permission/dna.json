@@ -1,19 +1,16 @@
 {
+  "schema_version": "0.1.0",
   "id": "claim:obligation-implies-permission:v1",
   "kind": "theorem",
-  "source_dna": "sha256:TODO",
-  "informal_dna": "sha256:TODO",
-  "logic_dna": "sha256:TODO",
-  "formula_dna": "sha256:TODO",
-  "context_dna": "merkle:TODO",
-  "dependency_dna": "merkle:TODO",
+  "source_dna": "sha256:66f7ef01ac6c7a74e8fea87b39e6d40ca112c0639d5e8b85cd2a9a49b56b489b",
+  "informal_dna": "sha256:b17a013334a48fce75daea8ad8e0f08e2a4c514e05c52b0fe58142d6ccb3ebd9",
+  "logic_dna": "sha256:6bb716d9035e4813ce1765e5524b0fe5cbe84b4aed0ef299ecc5904324f9b53b",
+  "formula_dna": "sha256:e05cd33dac6afd7d133f5d07128280260735664bd06afda5f9e5cd6595a0c9ad",
+  "context_dna": "merkle:df7bbacd99d490ecf770090377bdd156e6618d4f75aa055963d130c2bad0bedc",
+  "dependency_dna": "merkle:5d0bcb25ff420c174f847b2a5fa0a4cd28444f0669118138ec90bb217569e5a3",
   "proofs": {
     "lean4": {
-      "status": "checked",
-      "statement_hash": "sha256:TODO",
-      "proof_hash": "sha256:TODO",
-      "environment_hash": "sha256:TODO",
-      "verified_at": "TODO"
+      "status": "not_attempted"
     },
     "isabelle_hol": {
       "status": "not_attempted"

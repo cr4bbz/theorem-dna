@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "theorem-dna"
 version = "0.1.0"
@@ -5,5 +9,18 @@ description = "A proof-oriented knowledge ledger for formal philosophy."
 requires-python = ">=3.12"
 dependencies = []
 
+[project.optional-dependencies]
+test = [
+  "jsonschema[format]>=4.23,<5",
+  "pytest>=8.3,<9",
+]
+
 [tool.pytest.ini_options]
 pythonpath = ["tools"]
+
+[tool.setuptools]
+package-dir = {"" = "tools"}
+
+[tool.setuptools.packages.find]
+where = ["tools"]
+include = ["theorem_dna*"]
