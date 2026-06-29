@@ -1,0 +1,123 @@
+{
+  "schema_version": "0.1.0",
+  "id": "adel0-action-logic-v0",
+  "name": "ADeL0 Action Deontic Logic Profile",
+  "status": "draft",
+  "source_papers": [
+    "doi:10.1007/s11225-022-09989-y"
+  ],
+  "meta_logic": "lean4-dependent-type-theory",
+  "object_language": {
+    "kind": "adel0-action-logic",
+    "primitive_sorts": [
+      "World",
+      "ActionTerm",
+      "Formula"
+    ],
+    "primitive_symbols": [
+      "zero",
+      "one",
+      "complement",
+      "choice",
+      "conjunction",
+      "done",
+      "obligatory",
+      "universal",
+      "agentSettled",
+      "next"
+    ]
+  },
+  "consequence_relation": {
+    "name": "ADeL0 frame-condition validity slice",
+    "representation": "semantic-validity",
+    "notes": "The first slice records ADeL0 syntax and core semantic conditions for done, obligation, and bridge axioms."
+  },
+  "metalogical_properties": [
+    {
+      "id": "action_term_algebra",
+      "status": "represented",
+      "description": "Lean represents action terms with zero, one, complement, choice, and conjunction."
+    },
+    {
+      "id": "done_axioms_d1_d4",
+      "status": "represented",
+      "description": "D1, D3, and D4 are exported as Lean theorems from ADeL0 frame conditions; D2 is represented in the frame condition for complements."
+    },
+    {
+      "id": "obligation_axioms_o1_o5",
+      "status": "represented",
+      "description": "O1-O5 are represented as obligation frame conditions, with O4 and O5 exported as Lean theorems."
+    },
+    {
+      "id": "bridge_axioms_b1_b3",
+      "status": "represented",
+      "description": "B1-B3 are represented as accessibility bridge conditions and exported as Lean theorems."
+    }
+  ],
+  "normative_systems": [
+    {
+      "id": "adel0_deontic_model",
+      "status": "represented",
+      "description": "ADeL0 models store done-action and obligation valuations over action terms."
+    },
+    {
+      "id": "tiny_concrete_model",
+      "status": "represented",
+      "description": "A small Lean model verifies the first profile slice is satisfiable."
+    }
+  ],
+  "permission_families": [
+    {
+      "id": "not_in_scope",
+      "status": "scoped-out",
+      "description": "This first ADeL0 slice focuses on action terms, done, obligation, and bridge axioms."
+    }
+  ],
+  "formalization_targets": [
+    {
+      "id": "adel0_syntax",
+      "source": "doi:10.1007/s11225-022-09989-y",
+      "status": "represented",
+      "reason": "Represented by ActionTerm and Formula in Lean."
+    },
+    {
+      "id": "axioms_d1_d4_o1_o5_b1_b3",
+      "source": "doi:10.1007/s11225-022-09989-y",
+      "status": "represented",
+      "reason": "Represented as Lean frame conditions and exported theorems for selected axioms."
+    },
+    {
+      "id": "soundness_truth_lemma_completeness",
+      "source": "doi:10.1007/s11225-022-09989-y",
+      "status": "pending",
+      "reason": "The first slice does not yet construct the canonical model or prove the full Truth Lemma/completeness theorem."
+    }
+  ],
+  "provers": {
+    "lean4": {
+      "status": "definitions_checked",
+      "file": "provers/lean/TheoremDNA/LogicProfiles/ADeL0.lean",
+      "declarations": [
+        "TheoremDNA.LogicProfiles.ADeL0.ActionTerm",
+        "TheoremDNA.LogicProfiles.ADeL0.Formula",
+        "TheoremDNA.LogicProfiles.ADeL0.ADeL0Model",
+        "TheoremDNA.LogicProfiles.ADeL0.ADeL0FrameConditions",
+        "TheoremDNA.LogicProfiles.ADeL0.d1_done_one",
+        "TheoremDNA.LogicProfiles.ADeL0.d3_done_choice",
+        "TheoremDNA.LogicProfiles.ADeL0.d4_done_conjunction",
+        "TheoremDNA.LogicProfiles.ADeL0.o4_impossible_not_obligatory",
+        "TheoremDNA.LogicProfiles.ADeL0.o5_obligation_agglomeration",
+        "TheoremDNA.LogicProfiles.ADeL0.b1_global_accessibility_bridges_to_agent_alternative",
+        "TheoremDNA.LogicProfiles.ADeL0.b2_global_accessibility_bridges_to_next",
+        "TheoremDNA.LogicProfiles.ADeL0.b3_next_bridges_to_settled_next",
+        "TheoremDNA.LogicProfiles.ADeL0.tiny_obligation_agglomerates"
+      ]
+    },
+    "isabelle_hol": {
+      "status": "not_attempted"
+    },
+    "rocq": {
+      "status": "not_attempted"
+    }
+  }
+}
