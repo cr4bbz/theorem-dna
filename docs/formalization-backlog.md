@@ -36,7 +36,9 @@ Current slice:
   assumptions;
 - Proposition 4.3 is represented as a Lean theorem: internal coherence entails
   almost inclusion of a normative system in its generalized negative permission
-  system.
+  system;
+- Proposition 4.4 is represented as a Lean theorem: inclusion of normative
+  systems is antitone for generalized negative permission.
 
 Acceptance:
 

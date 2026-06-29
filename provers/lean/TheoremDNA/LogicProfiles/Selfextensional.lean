@@ -89,6 +89,18 @@ def AlmostIncludedInPermission {Formula : Type} (logic : Consequence Formula)
     ¬ ExplosiveCondition logic condition ->
     permission condition formula
 
+def NormativeSystemIncluded {Formula : Type}
+    (smaller larger : NormativeSystem Formula) : Prop :=
+  ∀ {condition formula},
+    smaller.norms condition formula ->
+    larger.norms condition formula
+
+def PermissionSystemIncluded {Formula : Type}
+    (smaller larger : PermissionSystem Formula) : Prop :=
+  ∀ {condition formula},
+    smaller condition formula ->
+    larger condition formula
+
 def NormsClosedUnderWeakeningOutput {Formula : Type}
     (logic : Consequence Formula) (system : NormativeSystem Formula) : Prop :=
   ∀ {condition source target},
@@ -238,6 +250,16 @@ theorem proposition_4_3_internalCoherence_almostIncluded {Formula : Type}
   intro condition formula obligation conditionConsistent
   intro otherObligation otherObligationH inconsistent
   exact coherent obligation otherObligationH conditionConsistent inconsistent
+
+theorem proposition_4_4_negativePermission_antitone {Formula : Type}
+    (logic : Consequence Formula)
+    (smaller larger : NormativeSystem Formula)
+    (included : NormativeSystemIncluded smaller larger) :
+    PermissionSystemIncluded
+      (GeneralizedNegativePermission logic larger)
+      (GeneralizedNegativePermission logic smaller) := by
+  intro condition formula largerPermission obligation smallerObligation
+  exact largerPermission obligation (included smallerObligation)
 
 def BooleanConsequence : Consequence Bool where
   entails premises conclusion :=

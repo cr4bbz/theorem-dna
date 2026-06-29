@@ -63,7 +63,7 @@
     {
       "id": "negative_permission",
       "status": "represented",
-      "description": "Permission by compatibility with all obligations under the same condition, with Proposition 2.6 maximality and Proposition 4.2 contrary-obligation equivalence represented abstractly."
+      "description": "Permission by compatibility with all obligations under the same condition, with Propositions 2.6 and 4.2-4.4 represented abstractly."
     },
     {
       "id": "dual_negative_permission",
@@ -103,8 +103,8 @@
     {
       "id": "proposition_4.4",
       "source": "doi:10.1007/s11229-025-05207-z",
-      "status": "scoped-out",
-      "reason": "Deferred until the dynamic permission update semantics is encoded."
+      "status": "represented",
+      "reason": "Represented as a Lean theorem: inclusion of normative systems is antitone for generalized negative permission."
     }
   ],
   "provers": {
@@ -123,10 +123,13 @@
         "TheoremDNA.LogicProfiles.Selfextensional.LargestCompatiblePermission",
         "TheoremDNA.LogicProfiles.Selfextensional.InternallyCoherent",
         "TheoremDNA.LogicProfiles.Selfextensional.AlmostIncludedInPermission",
+        "TheoremDNA.LogicProfiles.Selfextensional.NormativeSystemIncluded",
+        "TheoremDNA.LogicProfiles.Selfextensional.PermissionSystemIncluded",
         "TheoremDNA.LogicProfiles.Selfextensional.conditionalNegativePermission_compatible",
         "TheoremDNA.LogicProfiles.Selfextensional.conditionalNegativePermission_largest",
         "TheoremDNA.LogicProfiles.Selfextensional.proposition_4_2_negativePermission_equivalence",
         "TheoremDNA.LogicProfiles.Selfextensional.proposition_4_3_internalCoherence_almostIncluded",
+        "TheoremDNA.LogicProfiles.Selfextensional.proposition_4_4_negativePermission_antitone",
         "TheoremDNA.LogicProfiles.Selfextensional.booleanConsequence_selfextensional",
         "TheoremDNA.LogicProfiles.Selfextensional.preorderConsequence_selfextensional",
         "TheoremDNA.LogicProfiles.Selfextensional.ThreeValuedConsequence"
