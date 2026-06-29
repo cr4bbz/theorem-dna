@@ -76,6 +76,17 @@ Formalize the smallest useful importing calculus: source/target signatures,
 inherited axioms and rules, and derivation lifting. Prove soundness first;
 concrete completeness is a separate deliverable.
 
+Current slice:
+
+- `schema/import_graph.schema.json` and
+  `data/imports/minimal-logic-import-v0.json` make imports first-class,
+  versioned graph objects;
+- `tools/theorem_dna/import_graph.py` rejects imports with unknown endpoints,
+  missing mappings, duplicate source mappings, self-imports, and cycles;
+- `provers/lean/TheoremDNA/LogicProfiles/Importing.lean` proves soundness of
+  lifted derivations for a truth-preserving semantic import, plus one concrete
+  minimal identity import.
+
 Acceptance:
 
 - imports are first-class versioned objects;

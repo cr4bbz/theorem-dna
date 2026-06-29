@@ -51,7 +51,7 @@
 - [x] Represent Proposition 4.3 as a Lean theorem
 - [x] Represent Proposition 4.4 as a Lean theorem
 - [x] Separate action and state deontic languages with bridge principles
-- [ ] Add a sound logic-import calculus
+- [x] Add a sound logic-import calculus
 - [ ] Add ADeL0 as the first deontic action logic profile
 - [ ] Encode contrary-to-duty collapse and repair regression tests
 - [ ] Add relational Hohfeldian rights after agent-indexed claims

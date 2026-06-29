@@ -1,0 +1,114 @@
+{
+  "schema_version": "0.1.0",
+  "id": "logic-import-calculus-v0",
+  "name": "Sound Logic Import Calculus",
+  "status": "draft",
+  "source_papers": [
+    "doi:10.1007/s11225-011-9363-x"
+  ],
+  "meta_logic": "lean4-dependent-type-theory",
+  "object_language": {
+    "kind": "logic-import-calculus",
+    "primitive_sorts": [
+      "SourceFormula",
+      "SourceModel",
+      "TargetFormula",
+      "TargetModel"
+    ],
+    "primitive_symbols": [
+      "derives",
+      "satisfies",
+      "translate",
+      "reduct",
+      "preservesTruth"
+    ]
+  },
+  "consequence_relation": {
+    "name": "semantic soundness of lifted derivations",
+    "representation": "semantic-validity",
+    "notes": "The first slice proves that derivations imported along a truth-preserving translation remain sound in the target semantics."
+  },
+  "metalogical_properties": [
+    {
+      "id": "source_soundness",
+      "status": "assumed",
+      "description": "The source deductive system is sound for its source semantics."
+    },
+    {
+      "id": "truth_preserving_translation",
+      "status": "represented",
+      "description": "A semantic import maps target models to source reducts and preserves truth along formula translation."
+    },
+    {
+      "id": "acyclic_import_graph",
+      "status": "represented",
+      "description": "Python validation rejects cycles in first-class import graph objects."
+    },
+    {
+      "id": "complete_symbol_mappings",
+      "status": "represented",
+      "description": "Python validation rejects imports with missing endpoints or missing symbol mappings."
+    }
+  ],
+  "normative_systems": [
+    {
+      "id": "not_in_scope",
+      "status": "scoped-out",
+      "description": "This profile describes logic imports, not deontic normative systems."
+    }
+  ],
+  "permission_families": [
+    {
+      "id": "not_in_scope",
+      "status": "scoped-out",
+      "description": "This profile describes logic imports, not permission systems."
+    }
+  ],
+  "formalization_targets": [
+    {
+      "id": "first_class_import_objects",
+      "source": "doi:10.1007/s11225-011-9363-x",
+      "status": "represented",
+      "reason": "Represented by schema/import_graph.schema.json and data/imports/minimal-logic-import-v0.json."
+    },
+    {
+      "id": "cycle_and_mapping_rejection",
+      "source": "doi:10.1007/s11225-011-9363-x",
+      "status": "represented",
+      "reason": "Represented by theorem_dna.import_graph validation tests."
+    },
+    {
+      "id": "soundness_for_one_concrete_import",
+      "source": "doi:10.1007/s11225-011-9363-x",
+      "status": "represented",
+      "reason": "Represented by minimal_import_sound in Lean."
+    },
+    {
+      "id": "cross_prover_import_dependency_graph",
+      "source": "doi:10.1007/s11225-011-9363-x",
+      "status": "pending",
+      "reason": "Requires Isabelle/Rocq import declarations in a later slice."
+    }
+  ],
+  "provers": {
+    "lean4": {
+      "status": "checked",
+      "file": "provers/lean/TheoremDNA/LogicProfiles/Importing.lean",
+      "declarations": [
+        "TheoremDNA.LogicProfiles.Importing.Semantics",
+        "TheoremDNA.LogicProfiles.Importing.DeductiveSystem",
+        "TheoremDNA.LogicProfiles.Importing.Translation",
+        "TheoremDNA.LogicProfiles.Importing.SemanticImport",
+        "TheoremDNA.LogicProfiles.Importing.ImportedSystem",
+        "TheoremDNA.LogicProfiles.Importing.imported_theorem_sound",
+        "TheoremDNA.LogicProfiles.Importing.minimal_import_sound"
+      ]
+    },
+    "isabelle_hol": {
+      "status": "not_attempted"
+    },
+    "rocq": {
+      "status": "not_attempted"
+    }
+  }
+}
