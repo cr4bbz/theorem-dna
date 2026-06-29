@@ -53,6 +53,17 @@ Keep action obligations and state obligations as different types. Formalize
 the bridge definitions and derive situation-specific norms without coercing
 actions and propositions into one primitive.
 
+Current slice:
+
+- `data/logic_profiles/action-state-bridges-v0.json` records the
+  literature-backed action/state bridge profile;
+- `provers/lean/TheoremDNA/LogicProfiles/ActionState.lean` type-checks separate
+  action-step and state predicate spaces, explicit realization/avoidance bridge
+  principles, and candidate theorems for a most-specific obligation and a
+  most-general prohibition;
+- a contractor-style scenario derives a required safe-completion action from a
+  required completion state plus a prohibition against unsafe work.
+
 Acceptance:
 
 - separate action and state syntax;

@@ -50,7 +50,7 @@
 - [x] Represent Proposition 4.2 as a parameterized Lean theorem
 - [x] Represent Proposition 4.3 as a Lean theorem
 - [x] Represent Proposition 4.4 as a Lean theorem
-- [ ] Separate action and state deontic languages with bridge principles
+- [x] Separate action and state deontic languages with bridge principles
 - [ ] Add a sound logic-import calculus
 - [ ] Add ADeL0 as the first deontic action logic profile
 - [ ] Encode contrary-to-duty collapse and repair regression tests

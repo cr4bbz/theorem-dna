@@ -1,3 +1,4 @@
 import TheoremDNA.Basic
 import TheoremDNA.Deontic
+import TheoremDNA.LogicProfiles.ActionState
 import TheoremDNA.LogicProfiles.Selfextensional

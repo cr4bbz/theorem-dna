@@ -1,0 +1,136 @@
+{
+  "schema_version": "0.1.0",
+  "id": "action-state-bridges-v0",
+  "name": "Action/State Bridge Logic Profile",
+  "status": "draft",
+  "source_papers": [
+    "doi:10.1007/s11225-017-9716-1"
+  ],
+  "meta_logic": "lean4-dependent-type-theory",
+  "object_language": {
+    "kind": "action-state-bridge",
+    "primitive_sorts": [
+      "Situation",
+      "ActionStep",
+      "State"
+    ],
+    "primitive_symbols": [
+      "requiredAction",
+      "forbiddenAction",
+      "requiredState",
+      "forbiddenState",
+      "realizes",
+      "avoids"
+    ]
+  },
+  "consequence_relation": {
+    "name": "typed action/state bridge derivability",
+    "representation": "abstract-entailment",
+    "notes": "The profile keeps action and state propositions in separate types and connects them only through explicit bridge principles."
+  },
+  "metalogical_properties": [
+    {
+      "id": "separate_action_state_syntax",
+      "status": "represented",
+      "description": "Action obligations range over predicates on action steps; state obligations range over predicates on states."
+    },
+    {
+      "id": "bridge_principles",
+      "status": "represented",
+      "description": "State obligations and prohibitions can induce action obligations and prohibitions only through explicit realization/avoidance bridges."
+    }
+  ],
+  "normative_systems": [
+    {
+      "id": "action_obligation_frame",
+      "status": "represented",
+      "description": "Required and forbidden action predicates are stored per situation."
+    },
+    {
+      "id": "state_obligation_frame",
+      "status": "represented",
+      "description": "Required and forbidden state predicates are stored per situation."
+    },
+    {
+      "id": "most_specific_obligation_candidate",
+      "status": "represented",
+      "description": "Binary agglomeration and trimming yield more specific required action candidates."
+    },
+    {
+      "id": "most_general_prohibition_candidate",
+      "status": "represented",
+      "description": "Forbidden-action agglomeration yields a more general forbidden action candidate."
+    },
+    {
+      "id": "contractor_scenario",
+      "status": "represented",
+      "description": "A contract requires work completion, safety forbids unsafe work, and trimming derives the required safe completion action."
+    }
+  ],
+  "permission_families": [
+    {
+      "id": "not_in_scope",
+      "status": "scoped-out",
+      "description": "This profile focuses on obligations, prohibitions, and bridges rather than permission families."
+    }
+  ],
+  "formalization_targets": [
+    {
+      "id": "separate_action_and_state_languages",
+      "source": "doi:10.1007/s11225-017-9716-1",
+      "status": "represented",
+      "reason": "Represented in Lean by separate ActionStep and State predicate spaces."
+    },
+    {
+      "id": "bridge_definitions",
+      "source": "doi:10.1007/s11225-017-9716-1",
+      "status": "represented",
+      "reason": "Represented in Lean by explicit realizes/avoids bridge principles."
+    },
+    {
+      "id": "most_specific_obligation",
+      "source": "doi:10.1007/s11225-017-9716-1",
+      "status": "represented",
+      "reason": "Represented as a binary agglomeration candidate theorem for required actions."
+    },
+    {
+      "id": "most_general_prohibition",
+      "source": "doi:10.1007/s11225-017-9716-1",
+      "status": "represented",
+      "reason": "Represented as a binary union/agglomeration candidate theorem for forbidden actions."
+    },
+    {
+      "id": "contractor_example",
+      "source": "doi:10.1007/s11225-017-9716-1",
+      "status": "represented",
+      "reason": "Represented as a concrete Lean scenario deriving safe completion from a required state and an unsafe-action prohibition."
+    }
+  ],
+  "provers": {
+    "lean4": {
+      "status": "definitions_checked",
+      "file": "provers/lean/TheoremDNA/LogicProfiles/ActionState.lean",
+      "declarations": [
+        "TheoremDNA.LogicProfiles.ActionState.DeonticFrame",
+        "TheoremDNA.LogicProfiles.ActionState.BridgePrinciples",
+        "TheoremDNA.LogicProfiles.ActionState.ActionClosurePrinciples",
+        "TheoremDNA.LogicProfiles.ActionState.required_action_from_required_state",
+        "TheoremDNA.LogicProfiles.ActionState.forbidden_action_from_forbidden_state",
+        "TheoremDNA.LogicProfiles.ActionState.binary_most_specific_obligation_candidate",
+        "TheoremDNA.LogicProfiles.ActionState.binary_most_general_prohibition_candidate",
+        "TheoremDNA.LogicProfiles.ActionState.trimmed_obligation_avoids_forbidden_part",
+        "TheoremDNA.LogicProfiles.ActionState.ContractorExample.contract_requires_completion_action",
+        "TheoremDNA.LogicProfiles.ActionState.ContractorExample.safety_forbids_unsafe_work",
+        "TheoremDNA.LogicProfiles.ActionState.ContractorExample.contract_and_safety_require_trimmed_safe_completion",
+        "TheoremDNA.LogicProfiles.ActionState.ContractorExample.no_accident_bridge_forbids_unsafe_work",
+        "TheoremDNA.LogicProfiles.ActionState.ContractorExample.contractor_most_general_prohibition_candidate"
+      ]
+    },
+    "isabelle_hol": {
+      "status": "not_attempted"
+    },
+    "rocq": {
+      "status": "not_attempted"
+    }
+  }
+}
