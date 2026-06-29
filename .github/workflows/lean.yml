@@ -1,0 +1,28 @@
+name: Lean
+
+on:
+  push:
+    paths:
+      - "provers/lean/**"
+      - ".github/workflows/lean.yml"
+  pull_request:
+    paths:
+      - "provers/lean/**"
+      - ".github/workflows/lean.yml"
+  workflow_dispatch:
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: provers/lean
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: leanprover/lean-action@v1
+        with:
+          build: true
+          test: false
+          lint: false
