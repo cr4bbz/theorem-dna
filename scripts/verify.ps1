@@ -221,20 +221,56 @@ if ($Mode -eq "full") {
 }
 
 if (-not $SkipGitHub) {
-    Invoke-VerificationStep "GitHub pull request" {
+    Invoke-VerificationStep "GitHub checks" {
         $gh = Get-Command gh -ErrorAction SilentlyContinue
         if (-not $gh) {
             throw "GitHub CLI not found. Install gh or rerun with -SkipGitHub."
         }
         & gh auth status
         Assert-ExitCode "gh auth status"
-        $pr = & gh pr view --json number --jq ".number"
-        Assert-ExitCode "gh pr view"
-        if (-not $pr) {
-            throw "No pull request found for the current branch."
+
+        $currentCommit = (& git rev-parse HEAD).Trim()
+        Assert-ExitCode "git rev-parse"
+
+        $pr = & gh pr view --json number --jq ".number" 2>$null
+        if ($LASTEXITCODE -eq 0 -and $pr) {
+            & gh pr checks $pr
+            Assert-ExitCode "gh pr checks"
+            return
         }
-        & gh pr checks $pr
-        Assert-ExitCode "gh pr checks"
+
+        $runsJson = & gh run list --commit $currentCommit --limit 20 --json conclusion,status,name,url
+        Assert-ExitCode "gh run list"
+        $runsValue = $runsJson | ConvertFrom-Json
+        $runs = @($runsValue)
+        if ($runs.Count -gt 0) {
+            $failedRuns = @($runs | Where-Object {
+                $_.status -ne "completed" -or $_.conclusion -ne "success"
+            })
+            if ($failedRuns.Count -gt 0) {
+                $summary = ($failedRuns | ForEach-Object {
+                    "$($_.name): status=$($_.status), conclusion=$($_.conclusion), url=$($_.url)"
+                }) -join [Environment]::NewLine
+                throw "GitHub runs are not all successful:$([Environment]::NewLine)$summary"
+            }
+            Write-Output "All GitHub runs for $currentCommit passed."
+            return
+        }
+
+        $mergedPrsJson = & gh pr list --state merged --base main --limit 20 `
+            --json number,title,mergeCommit,url
+        Assert-ExitCode "gh pr list"
+        $mergedPrsValue = $mergedPrsJson | ConvertFrom-Json
+        $mergedPrs = @($mergedPrsValue)
+        $mergedPr = $mergedPrs | Where-Object {
+            $_.mergeCommit.oid -eq $currentCommit
+        } | Select-Object -First 1
+        if (-not $mergedPr) {
+            throw "No pull request, workflow run, or merged PR found for $currentCommit."
+        }
+
+        & gh pr checks $mergedPr.number
+        Assert-ExitCode "gh pr checks merged PR"
     }
 }
 
