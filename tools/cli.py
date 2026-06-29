@@ -10,6 +10,7 @@ from theorem_dna.hash import hash_json
 from theorem_dna.import_graph import validate_import_graph
 from theorem_dna.ledger import LedgerEvent
 from theorem_dna.signing import generate_keypair, sign_event, verify_signed_event
+from theorem_dna.upstream_artifact import validate_upstream_artifact
 
 
 def main() -> None:
@@ -55,6 +56,10 @@ def main() -> None:
 
     import_graph = sub.add_parser("validate-import-graph")
     import_graph.add_argument("graph")
+
+    upstream_artifact = sub.add_parser("validate-upstream-artifact")
+    upstream_artifact.add_argument("artifact")
+    upstream_artifact.add_argument("--root", default=".")
 
     args = parser.parse_args()
 
@@ -121,6 +126,11 @@ def main() -> None:
         value = json.loads(Path(args.graph).read_text(encoding="utf-8"))
         validate_import_graph(value)
         print("import graph valid")
+    elif args.cmd == "validate-upstream-artifact":
+        root = Path(args.root).resolve()
+        value = json.loads(Path(args.artifact).read_text(encoding="utf-8"))
+        validate_upstream_artifact(value, root)
+        print("upstream artifact valid")
 
 
 if __name__ == "__main__":

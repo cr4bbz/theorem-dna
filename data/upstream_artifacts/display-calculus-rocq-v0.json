@@ -1,0 +1,90 @@
+{
+  "schema_version": "0.1.0",
+  "id": "display-calculus-rocq-v0",
+  "name": "General Formalised Framework for Reasoning About Display Calculi",
+  "source_paper": "doi:10.1007/s11225-026-10239-8",
+  "artifact_type": "external-proof-environment",
+  "prover": "rocq",
+  "upstream_environment": {
+    "assistant": "Coq/Rocq",
+    "version": "8.18.0",
+    "notes": "The source paper states that the framework is encoded in Coq/Rocq 8.18.0."
+  },
+  "locator": {
+    "status": "located",
+    "source": "https://anthopeigne.github.io/A-general-formalised-framework-for-reasoning-about-display-calculi/toc.html",
+    "url": "https://github.com/anthopeigne/A-general-formalised-framework-for-reasoning-about-display-calculi",
+    "revision": "3c92df8b272acad87a2fdbc3ed2fcece0c18486d",
+    "notes": "The public documentation page links to the project repository. The revision pins the main branch as observed during registration."
+  },
+  "claims": [
+    {
+      "id": "belnap_conditions_cut_elimination",
+      "status": "source-described",
+      "description": "The paper describes a constructive Coq/Rocq formalization showing that Belnap conditions C2-C8 imply cut-elimination for the framework."
+    },
+    {
+      "id": "cpl_kt_lambek_instances",
+      "status": "source-described",
+      "description": "The paper describes instantiated display calculi for classical propositional logic, tense logic Kt, and non-commutative non-associative Lambek calculus."
+    },
+    {
+      "id": "cpl_decidability",
+      "status": "source-described",
+      "description": "The paper describes a formal proof of decidability for CPL inside the display-calculus framework."
+    },
+    {
+      "id": "constructive_extraction",
+      "status": "source-described",
+      "description": "The paper describes constructive proofs enabling extraction of cut-elimination programs."
+    },
+    {
+      "id": "large_coq_codebase",
+      "status": "source-described",
+      "description": "The paper reports a Coq codebase comprising more than 15000 lines."
+    }
+  ],
+  "integration_targets": [
+    {
+      "id": "pin_upstream_locator_and_revision",
+      "status": "verified",
+      "description": "The public documentation page and GitHub repository have been located, and the main branch revision has been pinned."
+    },
+    {
+      "id": "verify_upstream_build",
+      "status": "pending",
+      "description": "Build the upstream proof environment with the declared Coq/Rocq 8.18.0 toolchain."
+    },
+    {
+      "id": "reproduce_cpl_cut_elimination_example",
+      "status": "pending",
+      "description": "Reproduce one CPL cut-elimination or decidability example as a Theorem DNA integration test."
+    }
+  ],
+  "verification": {
+    "status": "registered",
+    "checks": [
+      {
+        "id": "schema_validation",
+        "status": "passed",
+        "description": "The upstream artifact registration validates against schema/upstream_artifact.schema.json."
+      },
+      {
+        "id": "source_paper_registered",
+        "status": "passed",
+        "description": "The source DOI is present in data/papers/foundational-formalization-candidates.json."
+      },
+      {
+        "id": "upstream_checkout",
+        "status": "passed",
+        "description": "The public GitHub repository is reachable and its main branch revision is pinned."
+      },
+      {
+        "id": "upstream_rocq_build",
+        "status": "pending",
+        "description": "Pending until the upstream proof environment can be checked out."
+      }
+    ],
+    "notes": "This registration intentionally avoids duplicating the full upstream constructive framework."
+  }
+}

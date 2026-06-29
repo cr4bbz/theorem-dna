@@ -105,3 +105,12 @@ def test_import_graphs_match_schema():
     for path in (ROOT / "data/imports").glob("*.json"):
         value = json.loads(path.read_text(encoding="utf-8"))
         jsonschema.validate(value, schema, format_checker=FormatChecker())
+
+
+def test_upstream_artifacts_match_schema():
+    schema = json.loads(
+        (ROOT / "schema/upstream_artifact.schema.json").read_text(encoding="utf-8")
+    )
+    for path in (ROOT / "data/upstream_artifacts").glob("*.json"):
+        value = json.loads(path.read_text(encoding="utf-8"))
+        jsonschema.validate(value, schema, format_checker=FormatChecker())
