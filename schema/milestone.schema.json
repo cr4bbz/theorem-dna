@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://theorem-dna.org/schema/milestone.schema.json",
+  "title": "Implementation Milestone",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "name",
+    "status",
+    "priority",
+    "implementation_wave",
+    "slices"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^milestone:[a-z0-9][a-z0-9-]*:[a-z0-9][a-z0-9.-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["planned", "in_progress", "complete"]
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["P0", "P1", "reference", "mixed"]
+    },
+    "implementation_wave": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slices": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "paper",
+          "slug",
+          "title",
+          "artifact_kind",
+          "source_relation",
+          "status"
+        ],
+        "properties": {
+          "paper": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifact_kind": {
+            "type": "string",
+            "enum": [
+              "logic_profile",
+              "lean_module",
+              "import_graph",
+              "upstream_artifact"
+            ]
+          },
+          "source_relation": {
+            "type": "string",
+            "enum": [
+              "direct_formalization",
+              "parameterized_representation",
+              "scenario_regression",
+              "upstream_registration",
+              "interpretive_note"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "registered",
+              "schema_validated",
+              "lean_checked",
+              "external_registered",
+              "pending"
+            ]
+          },
+          "logic_profile_file": {
+            "type": "string"
+          },
+          "lean_module": {
+            "type": "string"
+          },
+          "import_graph_file": {
+            "type": "string"
+          },
+          "upstream_artifact_file": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
