@@ -1,0 +1,24 @@
+name: Rocq
+
+on:
+  push:
+    paths:
+      - "provers/rocq/**"
+      - ".github/workflows/rocq.yml"
+  pull_request:
+    paths:
+      - "provers/rocq/**"
+      - ".github/workflows/rocq.yml"
+  workflow_dispatch:
+
+jobs:
+  rocq:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Placeholder
+        run: |
+          echo "TODO: configure rocq-prover/docker-opam-action"
+          echo "Then compile theories in provers/rocq"
