@@ -17,6 +17,12 @@ def hash_text(text: str, algorithm: str = "sha256") -> str:
     return f"sha256:{digest}"
 
 
+def hash_bytes(value: bytes, algorithm: str = "sha256") -> str:
+    if algorithm != "sha256":
+        raise ValueError(f"unsupported algorithm: {algorithm}")
+    return f"sha256:{hashlib.sha256(value).hexdigest()}"
+
+
 def hash_json(value: Any) -> str:
     return hash_text(canonical_json(value))
 

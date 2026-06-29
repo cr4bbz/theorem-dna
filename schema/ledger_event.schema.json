@@ -54,12 +54,72 @@
     },
     "metadata": {
       "type": "object"
+    },
+    "signature": {
+      "$ref": "#/$defs/signature"
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "event_type": {
+            "enum": [
+              "PROOF_VERIFIED",
+              "COROLLARY_ACCEPTED"
+            ]
+          }
+        },
+        "required": [
+          "event_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "signature"
+        ]
+      }
+    }
+  ],
   "$defs": {
     "sha256": {
       "type": "string",
       "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "signature": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "key_id",
+        "public_key",
+        "public_key_hash",
+        "signed_hash",
+        "value"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "ed25519"
+        },
+        "key_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "public_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "public_key_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "signed_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "value": {
+          "type": "string",
+          "contentEncoding": "base64"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

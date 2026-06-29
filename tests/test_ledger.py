@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from theorem_dna.hash import hash_json
+from theorem_dna.signing import verify_signed_event
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +18,7 @@ def test_event_hashes_and_chain_are_valid():
     for path in EVENTS:
         event = json.loads(path.read_text(encoding="utf-8"))
         event_hash = event.pop("event_hash")
+        event.pop("signature", None)
         assert event_hash == hash_json(event)
         assert event.get("previous_event_hash") == previous_hash
         previous_hash = event_hash
@@ -32,3 +34,10 @@ def test_event_payload_hashes_match_payloads():
         event = json.loads(event_path.read_text(encoding="utf-8"))
         payload = json.loads(payload_path.read_text(encoding="utf-8"))
         assert event["payload_hash"] == hash_json(payload)
+
+
+def test_verification_events_have_valid_signatures():
+    public_key = ROOT / "keys/ledger-signing.pub.pem"
+    for path in EVENTS[1:]:
+        event = json.loads(path.read_text(encoding="utf-8"))
+        assert verify_signed_event(event, public_key)

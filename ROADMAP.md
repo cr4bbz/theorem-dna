@@ -24,7 +24,7 @@
 
 - [x] Append-only event format
 - [x] Verify event hash chain
-- [ ] Sign verification events
+- [x] Sign verification events
 
 ## M4: Isabelle/Rocq Mirrors
 
@@ -37,3 +37,14 @@
 - [x] Generate first corollary candidate
 - [x] Verify candidate in Lean
 - [x] Store accepted corollary DNA
+
+## M6: Literature-backed Logic Profiles
+
+- [x] Register foundational papers and formalization slices
+- [ ] Formalize selfextensional normative and permission systems
+- [ ] Separate action and state deontic languages with bridge principles
+- [ ] Add a sound logic-import calculus
+- [ ] Add ADeL0 as the first deontic action logic profile
+- [ ] Encode contrary-to-duty collapse and repair regression tests
+- [ ] Add relational Hohfeldian rights after agent-indexed claims
+- [ ] Register the upstream Rocq display-calculus artifact

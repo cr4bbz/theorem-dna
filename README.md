@@ -68,6 +68,17 @@ python tools/cli.py generate-corollary \
   data/corollaries/not-permitted-implies-not-obligatory.json
 ```
 
+Verify signed ledger events:
+
+```bash
+python tools/cli.py verify-event \
+  ledger/events/genesis-proof-verified.json \
+  keys/ledger-signing.pub.pem
+```
+
+The prioritized literature slices are documented in
+`docs/formalization-backlog.md`; source PDFs are intentionally not committed.
+
 Lean build:
 
 ```bash

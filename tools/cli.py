@@ -8,6 +8,7 @@ from theorem_dna.corollary import generate_contrapositive
 from theorem_dna.generate import write_generated_dna
 from theorem_dna.hash import hash_json
 from theorem_dna.ledger import LedgerEvent
+from theorem_dna.signing import generate_keypair, sign_event, verify_signed_event
 
 
 def main() -> None:
@@ -35,6 +36,21 @@ def main() -> None:
     event.add_argument("--timestamp", required=True)
     event.add_argument("--previous-event")
     event.add_argument("--metadata")
+
+    keygen = sub.add_parser("generate-signing-key")
+    keygen.add_argument("private_key")
+    keygen.add_argument("public_key")
+
+    sign = sub.add_parser("sign-event")
+    sign.add_argument("event")
+    sign.add_argument("private_key")
+    sign.add_argument("--key-id", required=True)
+    sign.add_argument("--public-key", required=True)
+    sign.add_argument("--output")
+
+    verify = sub.add_parser("verify-event")
+    verify.add_argument("event")
+    verify.add_argument("public_key")
 
     args = parser.parse_args()
 
@@ -76,6 +92,27 @@ def main() -> None:
         Path(args.output).write_text(
             json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
+    elif args.cmd == "generate-signing-key":
+        generate_keypair(Path(args.private_key), Path(args.public_key))
+    elif args.cmd == "sign-event":
+        path = Path(args.event)
+        value = json.loads(path.read_text(encoding="utf-8"))
+        signed = sign_event(
+            value,
+            Path(args.private_key),
+            args.key_id,
+            args.public_key,
+        )
+        output = Path(args.output) if args.output else path
+        output.write_text(
+            json.dumps(signed, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    elif args.cmd == "verify-event":
+        value = json.loads(Path(args.event).read_text(encoding="utf-8"))
+        if not verify_signed_event(value, Path(args.public_key)):
+            raise SystemExit("signature verification failed")
+        print("signature valid")
 
 
 if __name__ == "__main__":

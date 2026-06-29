@@ -74,3 +74,16 @@ def test_ledger_events_match_schema():
     for path in (ROOT / "ledger/events").glob("*.json"):
         value = json.loads(path.read_text(encoding="utf-8"))
         jsonschema.validate(value, schema, format_checker=FormatChecker())
+
+
+def test_foundational_papers_match_schema():
+    schema = json.loads(
+        (ROOT / "schema/paper.schema.json").read_text(encoding="utf-8")
+    )
+    papers = json.loads(
+        (
+            ROOT / "data/papers/foundational-formalization-candidates.json"
+        ).read_text(encoding="utf-8")
+    )
+    for paper in papers:
+        jsonschema.validate(paper, schema, format_checker=FormatChecker())
