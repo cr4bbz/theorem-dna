@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1.0",
+  "id": "milestone:p0-claim-corpus:v0.1",
+  "name": "P0/P1 literature-backed claim corpus",
+  "status": "in_progress",
+  "priority": "mixed",
+  "implementation_wave": "M6",
+  "slices": [
+    {
+      "paper": "doi:10.1007/s11229-025-05207-z",
+      "slug": "selfextensional-normative-permission",
+      "title": "Selfextensional normative and permission systems",
+      "artifact_kind": "logic_profile",
+      "source_relation": "parameterized_representation",
+      "status": "lean_checked",
+      "logic_profile_file": "data/logic_profiles/selfextensional-normative-permission-v0.json",
+      "lean_module": "TheoremDNA.LogicProfiles.Selfextensional",
+      "notes": "Propositions 2.6 and 4.2-4.4 are represented as parameterized Lean theorems under explicit assumptions."
+    },
+    {
+      "paper": "doi:10.1007/s11225-017-9716-1",
+      "slug": "action-state-bridges",
+      "title": "Actions, states, and bridging principles",
+      "artifact_kind": "logic_profile",
+      "source_relation": "scenario_regression",
+      "status": "lean_checked",
+      "logic_profile_file": "data/logic_profiles/action-state-bridges-v0.json",
+      "lean_module": "TheoremDNA.LogicProfiles.ActionState",
+      "notes": "The contractor example is an illustrative regression scenario built from the bridge principles, not a directly quoted paper theorem."
+    },
+    {
+      "paper": "doi:10.1007/s11225-011-9363-x",
+      "slug": "logic-import-calculus",
+      "title": "Importing logics",
+      "artifact_kind": "import_graph",
+      "source_relation": "parameterized_representation",
+      "status": "lean_checked",
+      "logic_profile_file": "data/logic_profiles/logic-import-calculus-v0.json",
+      "import_graph_file": "data/imports/minimal-logic-import-v0.json",
+      "lean_module": "TheoremDNA.LogicProfiles.Importing",
+      "notes": "The current slice covers a minimal import graph and sound lifting; concrete completeness remains pending."
+    },
+    {
+      "paper": "doi:10.1007/s11225-022-09989-y",
+      "slug": "adel0-action-logic",
+      "title": "ADeL0 action deontic logic",
+      "artifact_kind": "logic_profile",
+      "source_relation": "parameterized_representation",
+      "status": "lean_checked",
+      "logic_profile_file": "data/logic_profiles/adel0-action-logic-v0.json",
+      "lean_module": "TheoremDNA.LogicProfiles.ADeL0",
+      "notes": "Syntax and selected D/O/B semantic conditions are represented; full canonical completeness is pending."
+    },
+    {
+      "paper": "doi:10.1007/s11225-016-9686-8",
+      "slug": "contrary-to-duty-regressions",
+      "title": "Contrary-to-duty collapse and repair regression tests",
+      "artifact_kind": "logic_profile",
+      "source_relation": "direct_formalization",
+      "status": "lean_checked",
+      "logic_profile_file": "data/logic_profiles/contrary-to-duty-regressions-v0.json",
+      "lean_module": "TheoremDNA.LogicProfiles.ContraryToDuty",
+      "notes": "Definition 1.1, Theorem 1.2 collapse pattern, and Theorems 2.1/2.2 repair modes are represented."
+    },
+    {
+      "paper": "doi:10.1007/s11225-019-09870-5",
+      "slug": "hohfeldian-rights",
+      "title": "Relational Hohfeldian rights",
+      "artifact_kind": "logic_profile",
+      "source_relation": "parameterized_representation",
+      "status": "lean_checked",
+      "logic_profile_file": "data/logic_profiles/hohfeldian-rights-v0.json",
+      "lean_module": "TheoremDNA.LogicProfiles.Hohfeld",
+      "notes": "The current slice records the Agent-Agent-Act relational core, correlatives, opposites, and a tiny example."
+    },
+    {
+      "paper": "doi:10.1007/s11225-026-10239-8",
+      "slug": "display-calculus-rocq",
+      "title": "Upstream Rocq display-calculus framework",
+      "artifact_kind": "upstream_artifact",
+      "source_relation": "upstream_registration",
+      "status": "external_registered",
+      "upstream_artifact_file": "data/upstream_artifacts/display-calculus-rocq-v0.json",
+      "notes": "The public repository and main-branch revision are pinned; local upstream build reproduction remains pending."
+    }
+  ]
+}

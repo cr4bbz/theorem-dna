@@ -1,12 +1,6 @@
 ```text
-████████╗██╗  ██╗███████╗ ██████╗ ██████╗ ███████╗███╗   ███╗
-╚══██╔══╝██║  ██║██╔════╝██╔═══██╗██╔══██╗██╔════╝████╗ ████║
-   ██║   ███████║█████╗  ██║   ██║██████╔╝█████╗  ██╔████╔██║
-   ██║   ██╔══██║██╔══╝  ██║   ██║██╔══██╗██╔══╝  ██║╚██╔╝██║
-   ██║   ██║  ██║███████╗╚██████╔╝██║  ██║███████╗██║ ╚═╝ ██║
-   ╚═╝   ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝
-
-          D N A  ::  source-bound proof provenance
+THEOREM DNA
+source-bound proof provenance
 ```
 
 # Theorem DNA
@@ -17,13 +11,17 @@ The goal of this project is to preserve philosophical source material, extract c
 formalize them in proof assistants, verify them, and assign each axiom, definition,
 lemma, theorem, corollary, and formalization a reproducible **Theorem DNA**.
 
+## Current MVP status
 
-░        ░░  ░░░░  ░░        ░░░      ░░░       ░░░        ░░  ░░░░  ░░░░░░░░       ░░░   ░░░  ░░░      ░░
-▒▒▒▒  ▒▒▒▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒▒▒▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒▒▒▒▒   ▒▒   ▒▒▒▒▒▒▒▒  ▒▒▒▒  ▒▒    ▒▒  ▒▒  ▒▒▒▒  ▒
-▓▓▓▓  ▓▓▓▓▓        ▓▓      ▓▓▓▓  ▓▓▓▓  ▓▓       ▓▓▓      ▓▓▓▓        ▓▓▓▓▓▓▓▓  ▓▓▓▓  ▓▓  ▓  ▓  ▓▓  ▓▓▓▓  ▓
-████  █████  ████  ██  ████████  ████  ██  ███  ███  ████████  █  █  ████████  ████  ██  ██    ██        █
-████  █████  ████  ██        ███      ███  ████  ██        ██  ████  ████████       ███  ███   ██  ████  █
-                                                                                                          
+- Genesis deontic claim verified across Lean 4, Isabelle/HOL, and Rocq.
+- First derived corollary checked in Lean 4 and recorded in the ledger.
+- Literature-backed logic profiles exist for selfextensional permissions,
+  action-state bridges, importing logics, ADeL0, CTD regressions, and
+  Hohfeldian rights.
+- The upstream display-calculus Rocq artifact is registered with a pinned public
+  repository revision.
+- Source PDFs are not committed; DOI metadata and formalization targets are
+  versioned.
 
 ## Core idea
 
