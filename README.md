@@ -82,7 +82,8 @@ VERIFY.cmd
 It bootstraps the Python environment, verifies schemas, hashes and signatures,
 builds Lean, Isabelle and Rocq, checks the GitHub workflows and current pull
 request, then prints one PASS/FAIL summary. The machine-readable result is
-written to `verification-reports/last-report.json`.
+written to `verification-reports/last-report.json`; a readable HTML report is
+written to `verification-reports/last-report.html` and opened by the button.
 
 PowerShell alternatives:
 

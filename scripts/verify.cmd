@@ -17,6 +17,12 @@ if "%RESULT%"=="0" (
   echo ONE OR MORE CHECKS FAILED
 )
 
+if exist "%~dp0..\verification-reports\last-report.html" (
+  echo.
+  echo Opening verification report...
+  start "" "%~dp0..\verification-reports\last-report.html"
+)
+
 echo.
 pause
 exit /b %RESULT%

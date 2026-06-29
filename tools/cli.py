@@ -9,6 +9,7 @@ from theorem_dna.generate import write_generated_dna
 from theorem_dna.hash import hash_json
 from theorem_dna.import_graph import validate_import_graph
 from theorem_dna.ledger import LedgerEvent
+from theorem_dna.report import write_verification_reports
 from theorem_dna.signing import generate_keypair, sign_event, verify_signed_event
 from theorem_dna.upstream_artifact import validate_upstream_artifact
 
@@ -60,6 +61,10 @@ def main() -> None:
     upstream_artifact = sub.add_parser("validate-upstream-artifact")
     upstream_artifact.add_argument("artifact")
     upstream_artifact.add_argument("--root", default=".")
+
+    render_report = sub.add_parser("render-verification-report")
+    render_report.add_argument("report")
+    render_report.add_argument("--output-dir", default="verification-reports")
 
     args = parser.parse_args()
 
@@ -131,6 +136,13 @@ def main() -> None:
         value = json.loads(Path(args.artifact).read_text(encoding="utf-8"))
         validate_upstream_artifact(value, root)
         print("upstream artifact valid")
+    elif args.cmd == "render-verification-report":
+        value = json.loads(Path(args.report).read_text(encoding="utf-8-sig"))
+        markdown_path, html_path = write_verification_reports(
+            value, Path(args.output_dir)
+        )
+        print(f"markdown report: {markdown_path}")
+        print(f"html report: {html_path}")
 
 
 if __name__ == "__main__":
