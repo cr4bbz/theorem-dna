@@ -1,0 +1,25 @@
+{
+  "id": "claim:obligation-implies-permission:v1",
+  "kind": "theorem",
+  "source_dna": "sha256:TODO",
+  "informal_dna": "sha256:TODO",
+  "logic_dna": "sha256:TODO",
+  "formula_dna": "sha256:TODO",
+  "context_dna": "merkle:TODO",
+  "dependency_dna": "merkle:TODO",
+  "proofs": {
+    "lean4": {
+      "status": "checked",
+      "statement_hash": "sha256:TODO",
+      "proof_hash": "sha256:TODO",
+      "environment_hash": "sha256:TODO",
+      "verified_at": "TODO"
+    },
+    "isabelle_hol": {
+      "status": "not_attempted"
+    },
+    "rocq": {
+      "status": "not_attempted"
+    }
+  }
+}
