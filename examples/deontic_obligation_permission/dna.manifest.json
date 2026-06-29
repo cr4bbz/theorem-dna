@@ -14,7 +14,17 @@
   ],
   "proofs": {
     "lean4": {
-      "status": "not_attempted"
+      "status": "checked",
+      "file": "provers/lean/TheoremDNA/Deontic.lean",
+      "environment": {
+        "prover": "lean4",
+        "version": "4.31.0",
+        "toolchain": "leanprover/lean4:v4.31.0",
+        "elan": "4.2.3",
+        "platform": "windows-x86_64",
+        "command": "lake build"
+      },
+      "verified_at": "2026-06-29T12:55:13Z"
     },
     "isabelle_hol": {
       "status": "not_attempted"

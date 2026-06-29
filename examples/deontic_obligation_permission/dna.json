@@ -10,7 +10,11 @@
   "dependency_dna": "merkle:5d0bcb25ff420c174f847b2a5fa0a4cd28444f0669118138ec90bb217569e5a3",
   "proofs": {
     "lean4": {
-      "status": "not_attempted"
+      "status": "checked",
+      "statement_hash": "sha256:e05cd33dac6afd7d133f5d07128280260735664bd06afda5f9e5cd6595a0c9ad",
+      "proof_hash": "sha256:f1a3ae2829d97c899bde150b90c0d354be32b5729b584bd9f1c331b156dad582",
+      "environment_hash": "sha256:2e10e749491d65cac6fab3ffeaaf7dd58015e5a02b05d12d76ac0af74a4e35c9",
+      "verified_at": "2026-06-29T12:55:13Z"
     },
     "isabelle_hol": {
       "status": "not_attempted"

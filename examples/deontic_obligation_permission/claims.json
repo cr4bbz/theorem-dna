@@ -5,6 +5,6 @@
     "informal": "Every obligation implies permission.",
     "source_span": "examples/deontic_obligation_permission/source.md#L5",
     "logic_profile": "minimal-deontic-v0",
-    "status": "formalized"
+    "status": "verified"
   }
 ]

@@ -1,0 +1,9 @@
+{
+  "id": "formalization:obligation-implies-permission:lean4:v1",
+  "claim_id": "claim:obligation-implies-permission:v1",
+  "prover": "lean4",
+  "file": "provers/lean/TheoremDNA/Deontic.lean",
+  "declaration_name": "TheoremDNA.Deontic.permission_from_obligation",
+  "statement": "∀ w, Obl w → Perm w",
+  "proof_status": "checked"
+}
