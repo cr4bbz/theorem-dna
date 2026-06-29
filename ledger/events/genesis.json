@@ -1,0 +1,8 @@
+{
+  "event_type": "GENESIS",
+  "project": "theorem-dna",
+  "description": "Initial proof ledger event.",
+  "previous_event_hash": null,
+  "payload_hash": "sha256:TODO",
+  "event_hash": "sha256:TODO"
+}
