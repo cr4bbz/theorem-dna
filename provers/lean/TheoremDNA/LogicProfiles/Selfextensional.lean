@@ -63,6 +63,12 @@ def Inconsistent {Formula : Type} (logic : Consequence Formula)
     (left right : Formula) : Prop :=
   ∀ conclusion, logic.entails (pairSet left right) conclusion
 
+def GeneralizedNegativePermission {Formula : Type} (logic : Consequence Formula)
+    (system : NormativeSystem Formula) : PermissionSystem Formula :=
+  fun condition formula =>
+    ∀ obligation, system.norms condition obligation ->
+      ¬ Inconsistent logic formula obligation
+
 def NormsClosedUnderWeakeningOutput {Formula : Type}
     (logic : Consequence Formula) (system : NormativeSystem Formula) : Prop :=
   ∀ {condition source target},
@@ -150,6 +156,58 @@ theorem conditionalNegativePermission_largest {Formula : Type}
     intro contraryObligation
     exact compatible otherPermitted contraryObligation
       (contrariesInconsistent formula)
+
+theorem generalizedNegativePermission_implies_conditional {Formula : Type}
+    (logic : Consequence Formula)
+    (negation : Negation Formula)
+    (system : NormativeSystem Formula)
+    (contrariesInconsistent :
+      ∀ formula, Inconsistent logic formula (negation.neg formula))
+    {condition formula : Formula}
+    (permission :
+      GeneralizedNegativePermission logic system condition formula) :
+    ConditionalNegativePermission negation system condition formula := by
+  intro contraryObligation
+  exact permission (negation.neg formula) contraryObligation
+    (contrariesInconsistent formula)
+
+theorem conditionalNegativePermission_implies_generalized {Formula : Type}
+    (logic : Consequence Formula)
+    (negation : Negation Formula)
+    (system : NormativeSystem Formula)
+    (weakeningOutput : NormsClosedUnderWeakeningOutput logic system)
+    (inconsistencyEntailsContrary :
+      ∀ permitted obligatory,
+        Inconsistent logic permitted obligatory ->
+        logic.entails (singleton obligatory) (negation.neg permitted))
+    {condition formula : Formula}
+    (permission :
+      ConditionalNegativePermission negation system condition formula) :
+    GeneralizedNegativePermission logic system condition formula := by
+  intro obligation obligationH inconsistent
+  exact permission
+    (weakeningOutput obligationH
+      (inconsistencyEntailsContrary formula obligation inconsistent))
+
+theorem proposition_4_2_negativePermission_equivalence {Formula : Type}
+    (logic : Consequence Formula)
+    (negation : Negation Formula)
+    (system : NormativeSystem Formula)
+    (weakeningOutput : NormsClosedUnderWeakeningOutput logic system)
+    (inconsistencyEntailsContrary :
+      ∀ permitted obligatory,
+        Inconsistent logic permitted obligatory ->
+        logic.entails (singleton obligatory) (negation.neg permitted))
+    (contrariesInconsistent :
+      ∀ formula, Inconsistent logic formula (negation.neg formula))
+    (condition formula : Formula) :
+    GeneralizedNegativePermission logic system condition formula ↔
+      ConditionalNegativePermission negation system condition formula := by
+  constructor
+  · exact generalizedNegativePermission_implies_conditional
+      logic negation system contrariesInconsistent
+  · exact conditionalNegativePermission_implies_generalized
+      logic negation system weakeningOutput inconsistencyEntailsContrary
 
 def BooleanConsequence : Consequence Bool where
   entails premises conclusion :=

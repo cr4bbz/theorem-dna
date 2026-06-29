@@ -29,7 +29,11 @@ Current slice:
 - Proposition 2.6 is represented as a parameterized Lean theorem: under
   weakening of output, inconsistency-to-contrary entailment, and contrary
   inconsistency, conditional negative permission is the largest permission system
-  compatible with the obligations of a normative system.
+  compatible with the obligations of a normative system;
+- Proposition 4.2 is represented as a parameterized Lean theorem equating the
+  generalized compatibility definition of negative permission with absence of
+  contrary obligation under the same explicit weakening and negation/consistency
+  assumptions.
 
 Acceptance:
 

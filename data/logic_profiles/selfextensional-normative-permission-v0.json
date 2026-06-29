@@ -63,7 +63,7 @@
     {
       "id": "negative_permission",
       "status": "represented",
-      "description": "Permission by absence of the contrary obligation, with the Proposition 2.6 maximality characterization represented abstractly."
+      "description": "Permission by compatibility with all obligations under the same condition, with Proposition 2.6 maximality and Proposition 4.2 contrary-obligation equivalence represented abstractly."
     },
     {
       "id": "dual_negative_permission",
@@ -91,8 +91,8 @@
     {
       "id": "proposition_4.2",
       "source": "doi:10.1007/s11229-025-05207-z",
-      "status": "scoped-out",
-      "reason": "Permission-family equivalence results are deferred until static and dynamic permission are represented."
+      "status": "represented",
+      "reason": "Represented as a parameterized Lean theorem equating the generalized compatibility definition of negative permission with absence of contrary obligation under weakening of output and negation/consistency assumptions."
     },
     {
       "id": "proposition_4.3",
@@ -118,10 +118,12 @@
         "TheoremDNA.LogicProfiles.Selfextensional.negativePermission",
         "TheoremDNA.LogicProfiles.Selfextensional.dualNegativePermission",
         "TheoremDNA.LogicProfiles.Selfextensional.ConditionalNegativePermission",
+        "TheoremDNA.LogicProfiles.Selfextensional.GeneralizedNegativePermission",
         "TheoremDNA.LogicProfiles.Selfextensional.CompatiblePermission",
         "TheoremDNA.LogicProfiles.Selfextensional.LargestCompatiblePermission",
         "TheoremDNA.LogicProfiles.Selfextensional.conditionalNegativePermission_compatible",
         "TheoremDNA.LogicProfiles.Selfextensional.conditionalNegativePermission_largest",
+        "TheoremDNA.LogicProfiles.Selfextensional.proposition_4_2_negativePermission_equivalence",
         "TheoremDNA.LogicProfiles.Selfextensional.booleanConsequence_selfextensional",
         "TheoremDNA.LogicProfiles.Selfextensional.preorderConsequence_selfextensional",
         "TheoremDNA.LogicProfiles.Selfextensional.ThreeValuedConsequence"
