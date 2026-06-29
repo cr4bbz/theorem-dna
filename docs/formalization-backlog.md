@@ -115,6 +115,13 @@ Acceptance:
     Theorems 2.1 and 2.2.
 - Add the Hohfeldian system only after relational and agent-indexed claims are
   supported by the schema.
+  Current slice:
+  - `data/logic_profiles/hohfeldian-rights-v0.json` records a relational
+    Hohfeldian rights profile based on Markovich's formal analysis;
+  - `provers/lean/TheoremDNA/LogicProfiles/Hohfeld.lean` type-checks
+    Agent-Agent-Act positions, explicit correlative laws for Claim-right/Duty,
+    Privilege/No-claim, Power/Liability, and Immunity/Disability, opposite-pair
+    consistency constraints, and a tiny land-parcel example.
 
 ## Reference integration
 

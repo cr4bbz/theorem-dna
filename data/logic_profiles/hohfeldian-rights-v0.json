@@ -1,0 +1,132 @@
+{
+  "schema_version": "0.1.0",
+  "id": "hohfeldian-rights-v0",
+  "name": "Relational Hohfeldian Rights Profile",
+  "status": "draft",
+  "source_papers": [
+    "doi:10.1007/s11225-019-09870-5"
+  ],
+  "meta_logic": "lean4-dependent-type-theory",
+  "object_language": {
+    "kind": "hohfeldian-rights",
+    "primitive_sorts": [
+      "Agent",
+      "Act"
+    ],
+    "primitive_symbols": [
+      "claimRight",
+      "duty",
+      "privilege",
+      "noClaim",
+      "power",
+      "liability",
+      "immunity",
+      "disability"
+    ]
+  },
+  "consequence_relation": {
+    "name": "Hohfeldian correlative and opposition relation layer",
+    "representation": "semantic-validity",
+    "notes": "The first slice represents Hohfeldian positions as directed relations between two agents and an act, with correlative and opposite-position laws kept explicit."
+  },
+  "metalogical_properties": [
+    {
+      "id": "agent_indexed_positions",
+      "status": "represented",
+      "description": "Every Hohfeldian position is represented as an Agent-Agent-Act relation."
+    },
+    {
+      "id": "correlative_pairs",
+      "status": "represented",
+      "description": "Claim-right/Duty, Privilege/No-claim, Power/Liability, and Immunity/Disability are represented as explicit equivalence laws."
+    },
+    {
+      "id": "opposite_pairs",
+      "status": "represented",
+      "description": "Claim-right/No-claim, Privilege/Duty, Power/Disability, and Immunity/Liability are represented as explicit consistency constraints."
+    },
+    {
+      "id": "modal_conditional_consequences",
+      "status": "pending",
+      "description": "The modal consequence analysis from the paper is intentionally left for a later slice after this relational kernel is imported into a modal semantics."
+    }
+  ],
+  "normative_systems": [
+    {
+      "id": "directed_claim_duty_system",
+      "status": "represented",
+      "description": "A holder's claim-right toward a bearer is correlated with the bearer's directed duty toward the holder."
+    },
+    {
+      "id": "directed_power_liability_system",
+      "status": "represented",
+      "description": "Higher-order legal change positions are represented by the Power/Liability and Immunity/Disability correlative pairs."
+    },
+    {
+      "id": "tiny_land_parcel_example",
+      "status": "represented",
+      "description": "A small Lean example checks a directed claim-right, duty, power, and liability relation."
+    }
+  ],
+  "permission_families": [
+    {
+      "id": "privilege_no_claim",
+      "status": "represented",
+      "description": "Privilege is represented as a directed Hohfeldian permission-like position whose correlative is No-claim."
+    }
+  ],
+  "formalization_targets": [
+    {
+      "id": "relational_directionality",
+      "source": "doi:10.1007/s11225-019-09870-5",
+      "status": "represented",
+      "reason": "Represented by HohfeldFrame as Agent-Agent-Act relations."
+    },
+    {
+      "id": "hohfeldian_correlatives",
+      "source": "doi:10.1007/s11225-019-09870-5",
+      "status": "represented",
+      "reason": "Represented by CorrelativeLaws and exported Lean theorems."
+    },
+    {
+      "id": "hohfeldian_opposites",
+      "source": "doi:10.1007/s11225-019-09870-5",
+      "status": "represented",
+      "reason": "Represented by OppositionLaws and exported Lean theorems."
+    },
+    {
+      "id": "conditional_consequence_analysis",
+      "source": "doi:10.1007/s11225-019-09870-5",
+      "status": "pending",
+      "reason": "The first slice records the relational core; full conditional/modal consequence semantics should be added in a follow-up profile."
+    }
+  ],
+  "provers": {
+    "lean4": {
+      "status": "definitions_checked",
+      "file": "provers/lean/TheoremDNA/LogicProfiles/Hohfeld.lean",
+      "declarations": [
+        "TheoremDNA.LogicProfiles.Hohfeld.HohfeldFrame",
+        "TheoremDNA.LogicProfiles.Hohfeld.CorrelativeLaws",
+        "TheoremDNA.LogicProfiles.Hohfeld.OppositionLaws",
+        "TheoremDNA.LogicProfiles.Hohfeld.claim_right_correlative_duty",
+        "TheoremDNA.LogicProfiles.Hohfeld.privilege_correlative_no_claim",
+        "TheoremDNA.LogicProfiles.Hohfeld.power_correlative_liability",
+        "TheoremDNA.LogicProfiles.Hohfeld.immunity_correlative_disability",
+        "TheoremDNA.LogicProfiles.Hohfeld.claim_right_excludes_no_claim",
+        "TheoremDNA.LogicProfiles.Hohfeld.privilege_excludes_duty",
+        "TheoremDNA.LogicProfiles.Hohfeld.TinyExample.frame",
+        "TheoremDNA.LogicProfiles.Hohfeld.TinyExample.correlatives",
+        "TheoremDNA.LogicProfiles.Hohfeld.TinyExample.alice_claims_bobs_duty_to_stay_away",
+        "TheoremDNA.LogicProfiles.Hohfeld.TinyExample.bobs_duty_correlates_with_alices_claim",
+        "TheoremDNA.LogicProfiles.Hohfeld.TinyExample.alice_power_correlates_with_bobs_liability"
+      ]
+    },
+    "isabelle_hol": {
+      "status": "not_attempted"
+    },
+    "rocq": {
+      "status": "not_attempted"
+    }
+  }
+}
