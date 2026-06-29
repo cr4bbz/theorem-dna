@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Formalization",
+  "type": "object",
+  "required": ["id", "claim_id", "prover", "declaration_name", "statement"],
+  "properties": {
+    "id": { "type": "string" },
+    "claim_id": { "type": "string" },
+    "prover": {
+      "type": "string",
+      "enum": ["lean4", "isabelle_hol", "rocq"]
+    },
+    "file": { "type": "string" },
+    "declaration_name": { "type": "string" },
+    "statement": { "type": "string" },
+    "proof_status": {
+      "type": "string",
+      "enum": ["not_attempted", "failed", "checked"]
+    }
+  },
+  "additionalProperties": false
+}
