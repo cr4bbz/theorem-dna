@@ -1,0 +1,23 @@
+name: Claim
+description: Add or review a philosophical claim
+title: "[Claim]: "
+labels: ["type:claim", "status:needs-review"]
+body:
+  - type: textarea
+    id: source
+    attributes:
+      label: Source span
+      description: Page, paragraph, sentence, quotation, or file reference.
+    validations:
+      required: true
+  - type: textarea
+    id: informal
+    attributes:
+      label: Informal claim
+    validations:
+      required: true
+  - type: input
+    id: logic_profile
+    attributes:
+      label: Logic profile
+      placeholder: minimal-deontic-v0
