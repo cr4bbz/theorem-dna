@@ -9,7 +9,7 @@
 
 ## M1: First Lean Proof
 
-- [ ] Build Lean project in CI
+- [x] Build Lean project in CI
 - [x] Verify `permission_from_obligation`
 - [x] Export verification result into a ledger event
 
