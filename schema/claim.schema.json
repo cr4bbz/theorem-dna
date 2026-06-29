@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Claim",
+  "type": "object",
+  "required": ["id", "kind", "informal", "source_span", "logic_profile"],
+  "properties": {
+    "id": { "type": "string" },
+    "kind": { "type": "string" },
+    "informal": { "type": "string" },
+    "source_span": { "type": "string" },
+    "logic_profile": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "interpreted", "formalized", "verified"]
+    }
+  },
+  "additionalProperties": false
+}
