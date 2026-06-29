@@ -1,0 +1,129 @@
+{
+  "schema_version": "0.1.0",
+  "id": "selfextensional-normative-permission-v0",
+  "name": "Selfextensional Normative and Permission Systems",
+  "status": "draft",
+  "source_papers": [
+    "doi:10.1007/s11229-025-05207-z"
+  ],
+  "meta_logic": "lean4-dependent-type-theory",
+  "object_language": {
+    "kind": "abstract-formula-language",
+    "primitive_sorts": [
+      "Formula"
+    ],
+    "primitive_symbols": [
+      "entails",
+      "equiv",
+      "norms",
+      "out",
+      "permitted"
+    ]
+  },
+  "consequence_relation": {
+    "name": "abstract selfextensional consequence relation",
+    "representation": "abstract-entailment",
+    "notes": "The Lean slice keeps consequence abstract and records selfextensionality as an explicit imported metalogical property."
+  },
+  "metalogical_properties": [
+    {
+      "id": "selfextensionality",
+      "status": "assumed",
+      "description": "Interderivability is treated as the equivalence relation available to normative definitions."
+    },
+    {
+      "id": "closure_operator",
+      "status": "represented",
+      "description": "Closure is represented as the set of formulas entailed by a premise set."
+    },
+    {
+      "id": "classical_instance",
+      "status": "pending",
+      "description": "Concrete Boolean/classical instance is the next acceptance target."
+    },
+    {
+      "id": "nonclassical_instance",
+      "status": "pending",
+      "description": "At least one nonclassical instance must be added before this profile becomes active."
+    }
+  ],
+  "normative_systems": [
+    {
+      "id": "norm_pair_relation",
+      "status": "represented",
+      "description": "A normative system is represented as a relation from input formulas to output formulas."
+    },
+    {
+      "id": "simple_output_operation",
+      "status": "represented",
+      "description": "The first output operation derives consequences from directly triggered norms."
+    }
+  ],
+  "permission_families": [
+    {
+      "id": "negative_permission",
+      "status": "represented",
+      "description": "Permission by absence of the contrary obligation."
+    },
+    {
+      "id": "dual_negative_permission",
+      "status": "represented",
+      "description": "Permission by absence of obligation for the negated formula."
+    },
+    {
+      "id": "static_permission",
+      "status": "pending",
+      "description": "Static permission requires the full normative extension criterion."
+    },
+    {
+      "id": "dynamic_permission",
+      "status": "pending",
+      "description": "Dynamic permission requires the full update criterion."
+    }
+  ],
+  "formalization_targets": [
+    {
+      "id": "proposition_2.6",
+      "source": "doi:10.1007/s11229-025-05207-z",
+      "status": "scoped-out",
+      "reason": "Needs the complete paper-specific closure assumptions; this slice only installs the abstract vocabulary."
+    },
+    {
+      "id": "proposition_4.2",
+      "source": "doi:10.1007/s11229-025-05207-z",
+      "status": "scoped-out",
+      "reason": "Permission-family equivalence results are deferred until static and dynamic permission are represented."
+    },
+    {
+      "id": "proposition_4.3",
+      "source": "doi:10.1007/s11229-025-05207-z",
+      "status": "scoped-out",
+      "reason": "Depends on the same paper-specific permission-family assumptions as Proposition 4.2."
+    },
+    {
+      "id": "proposition_4.4",
+      "source": "doi:10.1007/s11229-025-05207-z",
+      "status": "scoped-out",
+      "reason": "Deferred until the dynamic permission update semantics is encoded."
+    }
+  ],
+  "provers": {
+    "lean4": {
+      "status": "definitions_checked",
+      "file": "provers/lean/TheoremDNA/LogicProfiles/Selfextensional.lean",
+      "declarations": [
+        "TheoremDNA.LogicProfiles.Selfextensional.Consequence",
+        "TheoremDNA.LogicProfiles.Selfextensional.NormativeSystem",
+        "TheoremDNA.LogicProfiles.Selfextensional.simpleOutput",
+        "TheoremDNA.LogicProfiles.Selfextensional.negativePermission",
+        "TheoremDNA.LogicProfiles.Selfextensional.dualNegativePermission"
+      ]
+    },
+    "isabelle_hol": {
+      "status": "not_attempted"
+    },
+    "rocq": {
+      "status": "not_attempted"
+    }
+  }
+}

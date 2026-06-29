@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://theorem-dna.org/schema/logic_profile.schema.json",
+  "title": "Logic Profile",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "name",
+    "status",
+    "source_papers",
+    "meta_logic",
+    "object_language",
+    "consequence_relation",
+    "metalogical_properties",
+    "normative_systems",
+    "permission_families",
+    "formalization_targets",
+    "provers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "deprecated"]
+    },
+    "source_papers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "meta_logic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "object_language": {
+      "type": "object",
+      "required": ["kind", "primitive_sorts", "primitive_symbols"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "abstract-formula-language",
+            "modal-propositional",
+            "higher-order-predicate"
+          ]
+        },
+        "primitive_sorts": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "primitive_symbols": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "consequence_relation": {
+      "type": "object",
+      "required": ["name", "representation"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "representation": {
+          "type": "string",
+          "enum": ["abstract-entailment", "closure-operator", "semantic-validity"]
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "metalogical_properties": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/namedStatus" }
+    },
+    "normative_systems": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/namedStatus" }
+    },
+    "permission_families": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/namedStatus" }
+    },
+    "formalization_targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_.-]*$"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": ["represented", "scoped-out", "pending"]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "provers": {
+      "type": "object",
+      "minProperties": 1,
+      "properties": {
+        "lean4": { "$ref": "#/$defs/proverStatus" },
+        "isabelle_hol": { "$ref": "#/$defs/proverStatus" },
+        "rocq": { "$ref": "#/$defs/proverStatus" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "namedStatus": {
+      "type": "object",
+      "required": ["id", "status"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_.-]*$"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["represented", "assumed", "scoped-out", "pending"]
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "proverStatus": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["not_attempted", "definitions_checked", "checked"]
+        },
+        "file": {
+          "type": "string"
+        },
+        "declarations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

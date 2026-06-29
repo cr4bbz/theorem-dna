@@ -1,13 +1,68 @@
 {
+  "schema_version": "0.1.0",
   "id": "minimal-deontic-v0",
   "name": "Minimal Deontic Logic Profile",
   "status": "draft",
+  "source_papers": [],
   "meta_logic": "classical-higher-order-logic",
-  "primitive_predicates": [
-    "Obl",
-    "Perm"
+  "object_language": {
+    "kind": "higher-order-predicate",
+    "primitive_sorts": [
+      "World"
+    ],
+    "primitive_symbols": [
+      "Obl",
+      "Perm"
+    ]
+  },
+  "consequence_relation": {
+    "name": "ambient Lean implication",
+    "representation": "semantic-validity"
+  },
+  "metalogical_properties": [
+    {
+      "id": "classical_background",
+      "status": "assumed",
+      "description": "The genesis profile relies on Lean's ambient higher-order reasoning."
+    }
   ],
-  "axioms": [
-    "obligation_implies_permission"
-  ]
+  "normative_systems": [
+    {
+      "id": "obligation_implies_permission",
+      "status": "represented",
+      "description": "The only normative axiom of the genesis example."
+    }
+  ],
+  "permission_families": [
+    {
+      "id": "primitive_permission",
+      "status": "assumed",
+      "description": "Permission is primitive rather than derived from a normative system."
+    }
+  ],
+  "formalization_targets": [
+    {
+      "id": "permission_from_obligation",
+      "source": "genesis-example",
+      "status": "represented"
+    }
+  ],
+  "provers": {
+    "lean4": {
+      "status": "checked",
+      "file": "provers/lean/TheoremDNA/Deontic.lean",
+      "declarations": [
+        "TheoremDNA.Deontic.permission_from_obligation",
+        "TheoremDNA.Deontic.not_permission_implies_not_obligation"
+      ]
+    },
+    "isabelle_hol": {
+      "status": "checked",
+      "file": "provers/isabelle/TheoremDNA/ObligationPermission.thy"
+    },
+    "rocq": {
+      "status": "checked",
+      "file": "provers/rocq/theories/Deontic.v"
+    }
+  }
 }

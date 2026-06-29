@@ -14,6 +14,17 @@ formalize normative systems, output operations, and the four permission
 families. This replaces the genesis axiom `Obl w -> Perm w` with an explicit
 logic profile whose assumptions are visible in its DNA.
 
+Current slice:
+
+- `schema/logic_profile.schema.json` validates logic profiles as first-class
+  project objects;
+- `data/logic_profiles/selfextensional-normative-permission-v0.json` records
+  the literature-backed profile, represented permission families, and scoped
+  paper propositions;
+- `provers/lean/TheoremDNA/LogicProfiles/Selfextensional.lean` type-checks the
+  abstract consequence relation, closure operator, normative systems, simple
+  output, and the first two permission families.
+
 Acceptance:
 
 - definitions type-check in Lean;

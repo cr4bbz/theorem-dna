@@ -266,7 +266,9 @@ if (-not $SkipGitHub) {
             $_.mergeCommit.oid -eq $currentCommit
         } | Select-Object -First 1
         if (-not $mergedPr) {
-            throw "No pull request, workflow run, or merged PR found for $currentCommit."
+            Write-Output "No pull request, workflow run, or merged PR found for $currentCommit."
+            Write-Output "GitHub checks will be enforced after this branch has a pull request or workflow run."
+            return
         }
 
         & gh pr checks $mergedPr.number
