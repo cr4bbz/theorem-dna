@@ -52,6 +52,27 @@ python -m pip install -e ".[test]"
 python -m pytest
 ```
 
+## One-click verification
+
+On Windows, double-click `VERIFY.cmd` in the repository root:
+
+```text
+VERIFY.cmd
+```
+
+It bootstraps the Python environment, verifies schemas, hashes and signatures,
+builds Lean, Isabelle and Rocq, checks the GitHub workflows and current pull
+request, then prints one PASS/FAIL summary. The machine-readable result is
+written to `verification-reports/last-report.json`.
+
+PowerShell alternatives:
+
+```powershell
+.\scripts\verify.ps1 -Mode quick
+.\scripts\verify.ps1 -Mode full
+.\scripts\verify.ps1 -Mode full -SkipGitHub
+```
+
 Regenerate the genesis DNA record:
 
 ```bash
