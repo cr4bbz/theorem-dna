@@ -42,13 +42,14 @@ A claim is not merely a sentence. It is a versioned object with:
 - Isabelle/HOL
 - Rocq
 
-## First milestone
+## Genesis example
 
-Formalize a minimal deontic example:
+The repository began with a minimal deontic seed claim:
 
 > Every obligation implies permission.
 
-Then generate and verify a simple corollary.
+That genesis claim and its first Lean-derived corollary remain as bootstrap
+examples for the DNA, proof, and ledger workflow.
 
 ## Repository map
 
