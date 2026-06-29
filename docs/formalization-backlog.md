@@ -60,7 +60,9 @@ Current slice:
 - `provers/lean/TheoremDNA/LogicProfiles/ActionState.lean` type-checks separate
   action-step and state predicate spaces, explicit realization/avoidance bridge
   principles, and candidate theorems for a most-specific obligation and a
-  most-general prohibition.
+  most-general prohibition;
+- a contractor-style scenario derives a required safe-completion action from a
+  required completion state plus a prohibition against unsafe work.
 
 Acceptance:
 
