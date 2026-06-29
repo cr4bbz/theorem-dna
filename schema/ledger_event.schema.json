@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LedgerEvent",
+  "type": "object",
+  "required": ["event_type", "payload_hash", "event_hash"],
+  "properties": {
+    "event_type": { "type": "string" },
+    "target": { "type": "string" },
+    "previous_event_hash": { "type": ["string", "null"] },
+    "payload_hash": { "type": "string" },
+    "event_hash": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "actor": { "type": "string" }
+  },
+  "additionalProperties": false
+}
