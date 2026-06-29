@@ -33,7 +33,10 @@ Current slice:
 - Proposition 4.2 is represented as a parameterized Lean theorem equating the
   generalized compatibility definition of negative permission with absence of
   contrary obligation under the same explicit weakening and negation/consistency
-  assumptions.
+  assumptions;
+- Proposition 4.3 is represented as a Lean theorem: internal coherence entails
+  almost inclusion of a normative system in its generalized negative permission
+  system.
 
 Acceptance:
 

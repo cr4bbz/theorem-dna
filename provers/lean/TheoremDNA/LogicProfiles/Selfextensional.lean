@@ -69,6 +69,26 @@ def GeneralizedNegativePermission {Formula : Type} (logic : Consequence Formula)
     ∀ obligation, system.norms condition obligation ->
       ¬ Inconsistent logic formula obligation
 
+def ExplosiveCondition {Formula : Type} (logic : Consequence Formula)
+    (condition : Formula) : Prop :=
+  ∀ conclusion, logic.entails (singleton condition) conclusion
+
+def InternallyCoherent {Formula : Type} (logic : Consequence Formula)
+    (system : NormativeSystem Formula) : Prop :=
+  ∀ {condition first second},
+    system.norms condition first ->
+    system.norms condition second ->
+    ¬ ExplosiveCondition logic condition ->
+    ¬ Inconsistent logic first second
+
+def AlmostIncludedInPermission {Formula : Type} (logic : Consequence Formula)
+    (system : NormativeSystem Formula) (permission : PermissionSystem Formula) :
+    Prop :=
+  ∀ {condition formula},
+    system.norms condition formula ->
+    ¬ ExplosiveCondition logic condition ->
+    permission condition formula
+
 def NormsClosedUnderWeakeningOutput {Formula : Type}
     (logic : Consequence Formula) (system : NormativeSystem Formula) : Prop :=
   ∀ {condition source target},
@@ -208,6 +228,16 @@ theorem proposition_4_2_negativePermission_equivalence {Formula : Type}
       logic negation system contrariesInconsistent
   · exact conditionalNegativePermission_implies_generalized
       logic negation system weakeningOutput inconsistencyEntailsContrary
+
+theorem proposition_4_3_internalCoherence_almostIncluded {Formula : Type}
+    (logic : Consequence Formula)
+    (system : NormativeSystem Formula)
+    (coherent : InternallyCoherent logic system) :
+    AlmostIncludedInPermission logic system
+      (GeneralizedNegativePermission logic system) := by
+  intro condition formula obligation conditionConsistent
+  intro otherObligation otherObligationH inconsistent
+  exact coherent obligation otherObligationH conditionConsistent inconsistent
 
 def BooleanConsequence : Consequence Bool where
   entails premises conclusion :=

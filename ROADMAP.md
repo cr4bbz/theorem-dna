@@ -48,7 +48,8 @@
 - [x] Verify at least one nonclassical instance for selfextensional normative and permission systems
 - [x] Represent Proposition 2.6 as a parameterized Lean theorem
 - [x] Represent Proposition 4.2 as a parameterized Lean theorem
-- [ ] Represent or prove Propositions 4.3-4.4, replacing current scoped-out markers
+- [x] Represent Proposition 4.3 as a Lean theorem
+- [ ] Represent or prove Proposition 4.4, replacing current scoped-out marker
 - [ ] Separate action and state deontic languages with bridge principles
 - [ ] Add a sound logic-import calculus
 - [ ] Add ADeL0 as the first deontic action logic profile

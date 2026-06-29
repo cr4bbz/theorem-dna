@@ -97,8 +97,8 @@
     {
       "id": "proposition_4.3",
       "source": "doi:10.1007/s11229-025-05207-z",
-      "status": "scoped-out",
-      "reason": "Depends on the same paper-specific permission-family assumptions as Proposition 4.2."
+      "status": "represented",
+      "reason": "Represented as a Lean theorem: internal coherence entails almost inclusion of a normative system in its generalized negative permission system."
     },
     {
       "id": "proposition_4.4",
@@ -121,9 +121,12 @@
         "TheoremDNA.LogicProfiles.Selfextensional.GeneralizedNegativePermission",
         "TheoremDNA.LogicProfiles.Selfextensional.CompatiblePermission",
         "TheoremDNA.LogicProfiles.Selfextensional.LargestCompatiblePermission",
+        "TheoremDNA.LogicProfiles.Selfextensional.InternallyCoherent",
+        "TheoremDNA.LogicProfiles.Selfextensional.AlmostIncludedInPermission",
         "TheoremDNA.LogicProfiles.Selfextensional.conditionalNegativePermission_compatible",
         "TheoremDNA.LogicProfiles.Selfextensional.conditionalNegativePermission_largest",
         "TheoremDNA.LogicProfiles.Selfextensional.proposition_4_2_negativePermission_equivalence",
+        "TheoremDNA.LogicProfiles.Selfextensional.proposition_4_3_internalCoherence_almostIncluded",
         "TheoremDNA.LogicProfiles.Selfextensional.booleanConsequence_selfextensional",
         "TheoremDNA.LogicProfiles.Selfextensional.preorderConsequence_selfextensional",
         "TheoremDNA.LogicProfiles.Selfextensional.ThreeValuedConsequence"
