@@ -4,6 +4,10 @@ __pycache__/
 .pytest_cache/
 .venv/
 .env
+*.egg-info/
+.keys/
+tmp/
+verification-reports/
 
 # Lean
 .provers/
@@ -23,6 +27,10 @@ browser_info/
 *.glob
 .coq-native/
 _build/
+provers/rocq/Makefile
+provers/rocq/.Makefile.d
+provers/rocq/Makefile.conf
+provers/rocq/theories/.*.aux
 
 # OS/editor
 .DS_Store

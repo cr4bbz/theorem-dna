@@ -16,4 +16,11 @@ theorem obligation_entails_permission :
   ∀ w : World, Obl w → Perm w :=
   obligation_implies_permission Obl Perm
 
+theorem not_permission_implies_not_obligation
+  (w : World)
+  (hNotPermitted : ¬ Perm w) :
+  ¬ Obl w := by
+  intro hObligatory
+  exact hNotPermitted (obligation_implies_permission Obl Perm w hObligatory)
+
 end TheoremDNA.Deontic

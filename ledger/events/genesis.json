@@ -1,8 +1,9 @@
 {
   "event_type": "GENESIS",
-  "project": "theorem-dna",
-  "description": "Initial proof ledger event.",
-  "previous_event_hash": null,
-  "payload_hash": "sha256:TODO",
-  "event_hash": "sha256:TODO"
+  "payload_hash": "sha256:2c4d7af93fb3dab8ef1c31492c5960ff963aaf917db79d507e6764e7e0fe4e64",
+  "target": "project:theorem-dna",
+  "actor": "github:cr4bbz",
+  "timestamp": "2026-06-29T12:06:02Z",
+  "schema_version": "0.1.0",
+  "event_hash": "sha256:f3be67a1a3a0e4a305194738c2768753d2fd62a179b46928777c086dab52612a"
 }

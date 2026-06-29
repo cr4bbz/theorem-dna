@@ -1,0 +1,132 @@
+[
+  {
+    "id": "doi:10.1007/s11229-025-05207-z",
+    "title": "Obligations and permissions on selfextensional logics",
+    "authors": [
+      "Andrea De Domenico",
+      "Ali Farjami",
+      "Krishna Manoorkar",
+      "Alessandra Palmigiano",
+      "Mattia Panettiere",
+      "Xiaolong Wang"
+    ],
+    "year": 2025,
+    "doi": "10.1007/s11229-025-05207-z",
+    "journal": "Synthese",
+    "priority": "P0",
+    "formalization_strategy": "formalize",
+    "targets": [
+      "Consequence relations and selfextensionality",
+      "Normative systems and output operations",
+      "Negative, dual-negative, static, and dynamic permission",
+      "Internal coherence and Propositions 2.6, 4.2, 4.3, and 4.4"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s11225-017-9716-1",
+    "title": "Connecting Actions and States in Deontic Logic",
+    "authors": [
+      "Piotr Kulicki",
+      "Robert Trypuz"
+    ],
+    "year": 2017,
+    "doi": "10.1007/s11225-017-9716-1",
+    "journal": "Studia Logica",
+    "priority": "P0",
+    "formalization_strategy": "formalize",
+    "targets": [
+      "Separate action and state languages",
+      "Bridging definitions between action and state obligations",
+      "Most-specific obligation and most-general prohibition derivations"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s11225-011-9363-x",
+    "title": "Importing Logics: Soundness and Completeness Preservation",
+    "authors": [
+      "Joao Rasga",
+      "Amilcar Sernadas",
+      "Cristina Sernadas"
+    ],
+    "year": 2012,
+    "doi": "10.1007/s11225-011-9363-x",
+    "journal": "Studia Logica",
+    "priority": "P0",
+    "formalization_strategy": "formalize-slice",
+    "targets": [
+      "Deductive systems and imported signatures",
+      "Rules lifting derivations from imported logics",
+      "Soundness and concrete completeness of importing"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s11225-022-09989-y",
+    "title": "Generalizing Deontic Action Logic",
+    "authors": [
+      "Alessandro Giordani",
+      "Matteo Pascucci"
+    ],
+    "year": 2022,
+    "doi": "10.1007/s11225-022-09989-y",
+    "journal": "Studia Logica",
+    "priority": "P1",
+    "formalization_strategy": "formalize-slice",
+    "targets": [
+      "ADeL0 syntax and semantics",
+      "Axioms O1-O5, D1-D4, and bridge axioms",
+      "Soundness, Truth Lemma, and completeness for ADeL0"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s11225-016-9686-8",
+    "title": "A Conflict Between Some Semantic Conditions of Carmo and Jones for Contrary-to-Duty Obligations",
+    "authors": [
+      "Bjorn Kjos-Hanssen"
+    ],
+    "year": 2016,
+    "doi": "10.1007/s11225-016-9686-8",
+    "journal": "Studia Logica",
+    "priority": "P1",
+    "formalization_strategy": "formalize",
+    "targets": [
+      "Definition 1.1 and the counterexample in Theorem 1.2",
+      "Repair conditions and Theorems 2.1 and 2.2",
+      "Regression test preventing obligation collapse"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s11225-019-09870-5",
+    "title": "Understanding Hohfeld and Formalizing Legal Rights",
+    "authors": [
+      "Reka Markovich"
+    ],
+    "year": 2020,
+    "doi": "10.1007/s11225-019-09870-5",
+    "journal": "Studia Logica",
+    "priority": "P1",
+    "formalization_strategy": "formalize-slice",
+    "targets": [
+      "Definitions 1-3 for the modal language and models",
+      "Relational rights and duties",
+      "Hohfeldian correlatives, opposites, and legal power"
+    ]
+  },
+  {
+    "id": "doi:10.1007/s11225-026-10239-8",
+    "title": "A General Formalised Framework for Reasoning About Display Calculi",
+    "authors": [
+      "Rajeev Gore",
+      "Anthony Peigne"
+    ],
+    "year": 2026,
+    "doi": "10.1007/s11225-026-10239-8",
+    "journal": "Studia Logica",
+    "priority": "reference",
+    "formalization_strategy": "integrate-upstream",
+    "targets": [
+      "Register the upstream Rocq proof environment and artifact hashes",
+      "Reproduce the CPL cut-elimination example as an integration test",
+      "Avoid duplicating the full constructive framework"
+    ]
+  }
+]

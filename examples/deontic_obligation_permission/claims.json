@@ -5,6 +5,14 @@
     "informal": "Every obligation implies permission.",
     "source_span": "examples/deontic_obligation_permission/source.md#L5",
     "logic_profile": "minimal-deontic-v0",
-    "status": "formalized"
+    "status": "verified"
+  },
+  {
+    "id": "corollary:not-permitted-implies-not-obligatory:v1",
+    "kind": "corollary",
+    "informal": "Anything that is not permitted is not obligatory.",
+    "source_span": "examples/deontic_obligation_permission/source.md#L5",
+    "logic_profile": "minimal-deontic-v0",
+    "status": "verified"
   }
 ]

@@ -1,0 +1,18 @@
+{
+  "event_type": "COROLLARY_ACCEPTED",
+  "payload_hash": "sha256:50f3b467c4499a1e4a0ff35576f048389ab7f94c77f41ad1865c107e95008ea3",
+  "previous_event_hash": "sha256:ff6e782c17fcf193f9617d686a41b307174a612d1c8dea8f6144fd7fe16ef06f",
+  "target": "corollary:not-permitted-implies-not-obligatory:v1",
+  "actor": "generator:theorem-dna:0.1.0",
+  "timestamp": "2026-06-29T13:11:26Z",
+  "schema_version": "0.1.0",
+  "event_hash": "sha256:cf36481d254f751963e127205e9bf145d236a056d49b36b77d46df561743f0b9",
+  "signature": {
+    "algorithm": "ed25519",
+    "key_id": "theorem-dna-genesis-2026",
+    "public_key": "keys/ledger-signing.pub.pem",
+    "public_key_hash": "sha256:062c5a01518e03de0d4cc0b7a6478d70dd2775eeef1a06e6f69889396a6dfa21",
+    "signed_hash": "sha256:cf36481d254f751963e127205e9bf145d236a056d49b36b77d46df561743f0b9",
+    "value": "qbrpce5saRY6TR/nR92IwJUd5MmmgGAdnezMNOjj/T62mUvC9YSV1s4s+6PzmHIG9/GEvevNvbKykVQSQvTzAw=="
+  }
+}

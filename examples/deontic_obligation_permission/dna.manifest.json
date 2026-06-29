@@ -1,0 +1,53 @@
+{
+  "id": "claim:obligation-implies-permission:v1",
+  "kind": "theorem",
+  "claim_file": "examples/deontic_obligation_permission/claims.json",
+  "claim_id": "claim:obligation-implies-permission:v1",
+  "logic_profile_file": "data/logic_profiles/minimal-deontic-v0.json",
+  "formula": "∀ w, Obl w → Perm w",
+  "context": [
+    "logic-profile:minimal-deontic-v0",
+    "axiom:obligation_implies_permission"
+  ],
+  "dependencies": [
+    "axiom:obligation_implies_permission"
+  ],
+  "proofs": {
+    "lean4": {
+      "status": "checked",
+      "file": "provers/lean/TheoremDNA/Deontic.lean",
+      "proof_hash": "sha256:f1a3ae2829d97c899bde150b90c0d354be32b5729b584bd9f1c331b156dad582",
+      "environment": {
+        "prover": "lean4",
+        "version": "4.31.0",
+        "toolchain": "leanprover/lean4:v4.31.0",
+        "elan": "4.2.3",
+        "platform": "windows-x86_64",
+        "command": "lake build"
+      },
+      "verified_at": "2026-06-29T12:55:13Z"
+    },
+    "isabelle_hol": {
+      "status": "checked",
+      "file": "provers/isabelle/TheoremDNA/ObligationPermission.thy",
+      "environment": {
+        "prover": "isabelle_hol",
+        "version": "Isabelle2025-2",
+        "image": "makarius/isabelle@sha256:9bd33b183c399327c5d554fc8cde27c29b5d2b20cdc6fe7a604caa3f951018fc",
+        "command": "isabelle build -D provers/isabelle TheoremDNA"
+      },
+      "verified_at": "2026-06-29T13:09:36Z"
+    },
+    "rocq": {
+      "status": "checked",
+      "file": "provers/rocq/theories/Deontic.v",
+      "environment": {
+        "prover": "rocq",
+        "version": "9.2.0",
+        "image": "rocq/rocq-prover@sha256:29262a1a00095990b25b2f511147671bdda260f3e836a0e94737f75d5c8fb9a1",
+        "command": "rocq makefile -f _RocqProject -o Makefile && make -f Makefile -j2"
+      },
+      "verified_at": "2026-06-29T13:09:36Z"
+    }
+  }
+}

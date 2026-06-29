@@ -48,8 +48,57 @@ tests/      Unit tests for schema and ledger logic
 ## Bootstrap
 
 ```bash
-python -m pytest tests
+python -m pip install -e ".[test]"
+python -m pytest
 ```
+
+## One-click verification
+
+On Windows, double-click `VERIFY.cmd` in the repository root:
+
+```text
+VERIFY.cmd
+```
+
+It bootstraps the Python environment, verifies schemas, hashes and signatures,
+builds Lean, Isabelle and Rocq, checks the GitHub workflows and current pull
+request, then prints one PASS/FAIL summary. The machine-readable result is
+written to `verification-reports/last-report.json`.
+
+PowerShell alternatives:
+
+```powershell
+.\scripts\verify.ps1 -Mode quick
+.\scripts\verify.ps1 -Mode full
+.\scripts\verify.ps1 -Mode full -SkipGitHub
+```
+
+Regenerate the genesis DNA record:
+
+```bash
+python tools/cli.py generate-dna \
+  examples/deontic_obligation_permission/dna.manifest.json \
+  examples/deontic_obligation_permission/dna.json
+```
+
+Generate the first derived corollary:
+
+```bash
+python tools/cli.py generate-corollary \
+  data/corollaries/not-permitted-implies-not-obligatory.manifest.json \
+  data/corollaries/not-permitted-implies-not-obligatory.json
+```
+
+Verify signed ledger events:
+
+```bash
+python tools/cli.py verify-event \
+  ledger/events/genesis-proof-verified.json \
+  keys/ledger-signing.pub.pem
+```
+
+The prioritized literature slices are documented in
+`docs/formalization-backlog.md`; source PDFs are intentionally not committed.
 
 Lean build:
 

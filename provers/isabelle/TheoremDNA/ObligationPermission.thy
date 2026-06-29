@@ -11,7 +11,7 @@ theorem permission_from_obligation:
   using assms obligation_implies_permission by blast
 
 theorem obligation_entails_permission:
-  "∀w. Obl w ⟶ Perm w"
+  "\<forall>w. Obl w \<longrightarrow> Perm w"
   using obligation_implies_permission by blast
 
 end

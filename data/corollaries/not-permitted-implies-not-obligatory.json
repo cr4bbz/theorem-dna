@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1.0",
+  "id": "corollary:not-permitted-implies-not-obligatory:v1",
+  "kind": "corollary",
+  "status": "accepted",
+  "generated_by": {
+    "generator": "theorem-dna",
+    "version": "0.1.0",
+    "rule": "contraposition"
+  },
+  "premises": [
+    "claim:obligation-implies-permission:v1"
+  ],
+  "informal": "Anything that is not permitted is not obligatory.",
+  "formula": "∀ w, ¬ Perm w → ¬ Obl w",
+  "verifications": [
+    {
+      "prover": "lean4",
+      "declaration_name": "TheoremDNA.Deontic.not_permission_implies_not_obligation",
+      "status": "checked"
+    }
+  ],
+  "dna_file": "data/corollaries/not-permitted-implies-not-obligatory.dna.json"
+}

@@ -14,11 +14,15 @@ on:
 jobs:
   isabelle:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Placeholder
+      - name: Build TheoremDNA session with Isabelle2025-2
         run: |
-          echo "TODO: install pinned Isabelle version"
-          echo "Then run: isabelle build -D provers/isabelle TheoremDNA"
+          docker run --rm \
+            --mount "type=bind,source=$GITHUB_WORKSPACE,target=/workspace,readonly" \
+            makarius/isabelle:Isabelle2025-2@sha256:9bd33b183c399327c5d554fc8cde27c29b5d2b20cdc6fe7a604caa3f951018fc \
+            build -D /workspace/provers/isabelle TheoremDNA

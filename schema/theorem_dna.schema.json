@@ -1,11 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "TheoremDNA",
+  "$id": "https://theorem-dna.org/schema/theorem_dna.schema.json",
+  "title": "Theorem DNA v0.1",
   "type": "object",
   "required": [
+    "schema_version",
     "id",
     "kind",
     "source_dna",
+    "informal_dna",
     "logic_dna",
     "formula_dna",
     "context_dna",
@@ -13,41 +16,117 @@
     "proofs"
   ],
   "properties": {
-    "id": { "type": "string" },
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
     "kind": {
       "type": "string",
-      "enum": ["axiom", "definition", "lemma", "theorem", "corollary"]
+      "enum": [
+        "axiom",
+        "definition",
+        "lemma",
+        "theorem",
+        "corollary"
+      ]
     },
-    "source_dna": { "type": "string" },
-    "informal_dna": { "type": "string" },
-    "logic_dna": { "type": "string" },
-    "formula_dna": { "type": "string" },
-    "context_dna": { "type": "string" },
-    "dependency_dna": { "type": "string" },
+    "source_dna": {
+      "$ref": "#/$defs/sha256"
+    },
+    "informal_dna": {
+      "$ref": "#/$defs/sha256"
+    },
+    "logic_dna": {
+      "$ref": "#/$defs/sha256"
+    },
+    "formula_dna": {
+      "$ref": "#/$defs/sha256"
+    },
+    "context_dna": {
+      "$ref": "#/$defs/merkle"
+    },
+    "dependency_dna": {
+      "$ref": "#/$defs/merkle"
+    },
     "proofs": {
       "type": "object",
+      "minProperties": 1,
       "properties": {
-        "lean4": { "$ref": "#/$defs/proof" },
-        "isabelle_hol": { "$ref": "#/$defs/proof" },
-        "rocq": { "$ref": "#/$defs/proof" }
+        "lean4": {
+          "$ref": "#/$defs/proof"
+        },
+        "isabelle_hol": {
+          "$ref": "#/$defs/proof"
+        },
+        "rocq": {
+          "$ref": "#/$defs/proof"
+        }
       },
       "additionalProperties": false
     }
   },
   "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "merkle": {
+      "type": "string",
+      "pattern": "^merkle:[0-9a-f]{64}$"
+    },
     "proof": {
       "type": "object",
-      "required": ["status"],
+      "required": [
+        "status"
+      ],
       "properties": {
         "status": {
           "type": "string",
-          "enum": ["not_attempted", "failed", "checked"]
+          "enum": [
+            "not_attempted",
+            "failed",
+            "checked"
+          ]
         },
-        "statement_hash": { "type": "string" },
-        "proof_hash": { "type": "string" },
-        "environment_hash": { "type": "string" },
-        "verified_at": { "type": "string" }
+        "statement_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "proof_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "environment_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "verified_at": {
+          "type": "string",
+          "format": "date-time"
+        }
       },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "checked"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "statement_hash",
+              "proof_hash",
+              "environment_hash",
+              "verified_at"
+            ]
+          }
+        }
+      ],
       "additionalProperties": false
     }
   },

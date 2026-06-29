@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1.0",
+  "id": "corollary:not-permitted-implies-not-obligatory:v1",
+  "kind": "corollary",
+  "source_dna": "sha256:66f7ef01ac6c7a74e8fea87b39e6d40ca112c0639d5e8b85cd2a9a49b56b489b",
+  "informal_dna": "sha256:ca73d26d2616958de31e917355bf79037e8473ed2e7afbb1648a28e06758e560",
+  "logic_dna": "sha256:6bb716d9035e4813ce1765e5524b0fe5cbe84b4aed0ef299ecc5904324f9b53b",
+  "formula_dna": "sha256:dc746aca7f29f597c4e7cfd9e170a526b05c66a3654b5750794d4548c17b8bdb",
+  "context_dna": "merkle:df7bbacd99d490ecf770090377bdd156e6618d4f75aa055963d130c2bad0bedc",
+  "dependency_dna": "merkle:06e0d6cf2d5ae70530e9421878aadda12e52ae4edda2861c83ba56f8d609e751",
+  "proofs": {
+    "lean4": {
+      "status": "checked",
+      "statement_hash": "sha256:dc746aca7f29f597c4e7cfd9e170a526b05c66a3654b5750794d4548c17b8bdb",
+      "proof_hash": "sha256:9fa13ab92bc4375ea63aa452f47acdb18221f81415944d7ed4da03f73c63f613",
+      "environment_hash": "sha256:2e10e749491d65cac6fab3ffeaaf7dd58015e5a02b05d12d76ac0af74a4e35c9",
+      "verified_at": "2026-06-29T13:11:26Z"
+    },
+    "isabelle_hol": {
+      "status": "not_attempted"
+    },
+    "rocq": {
+      "status": "not_attempted"
+    }
+  }
+}

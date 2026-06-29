@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from typing import Any
 
-from .hash import canonical_json, hash_text
+from .hash import hash_json
 
 
 @dataclass(frozen=True)
@@ -15,11 +15,14 @@ class LedgerEvent:
     target: str | None = None
     actor: str | None = None
     timestamp: str | None = None
+    metadata: dict[str, Any] | None = None
 
     def with_event_hash(self) -> dict[str, Any]:
         payload = asdict(self)
+        payload["schema_version"] = "0.1.0"
         if payload["timestamp"] is None:
             payload["timestamp"] = datetime.now(timezone.utc).isoformat()
-        event_hash = hash_text(canonical_json(payload))
+        payload = {key: value for key, value in payload.items() if value is not None}
+        event_hash = hash_json(payload)
         payload["event_hash"] = event_hash
         return payload

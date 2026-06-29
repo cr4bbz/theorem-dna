@@ -1,0 +1,36 @@
+{
+  "id": "corollary:not-permitted-implies-not-obligatory:v1",
+  "kind": "corollary",
+  "claim_file": "examples/deontic_obligation_permission/claims.json",
+  "claim_id": "corollary:not-permitted-implies-not-obligatory:v1",
+  "logic_profile_file": "data/logic_profiles/minimal-deontic-v0.json",
+  "formula": "∀ w, ¬ Perm w → ¬ Obl w",
+  "context": [
+    "logic-profile:minimal-deontic-v0",
+    "axiom:obligation_implies_permission"
+  ],
+  "dependencies": [
+    "claim:obligation-implies-permission:v1"
+  ],
+  "proofs": {
+    "lean4": {
+      "status": "checked",
+      "file": "provers/lean/TheoremDNA/Deontic.lean",
+      "environment": {
+        "prover": "lean4",
+        "version": "4.31.0",
+        "toolchain": "leanprover/lean4:v4.31.0",
+        "elan": "4.2.3",
+        "platform": "windows-x86_64",
+        "command": "lake build"
+      },
+      "verified_at": "2026-06-29T13:11:26Z"
+    },
+    "isabelle_hol": {
+      "status": "not_attempted"
+    },
+    "rocq": {
+      "status": "not_attempted"
+    }
+  }
+}

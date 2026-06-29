@@ -1,4 +1,4 @@
-From Coq Require Import Init.Logic.
+From Stdlib Require Import Init.Logic.
 
 Module Deontic.
 

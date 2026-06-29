@@ -1,25 +1,34 @@
 {
+  "schema_version": "0.1.0",
   "id": "claim:obligation-implies-permission:v1",
   "kind": "theorem",
-  "source_dna": "sha256:TODO",
-  "informal_dna": "sha256:TODO",
-  "logic_dna": "sha256:TODO",
-  "formula_dna": "sha256:TODO",
-  "context_dna": "merkle:TODO",
-  "dependency_dna": "merkle:TODO",
+  "source_dna": "sha256:66f7ef01ac6c7a74e8fea87b39e6d40ca112c0639d5e8b85cd2a9a49b56b489b",
+  "informal_dna": "sha256:b17a013334a48fce75daea8ad8e0f08e2a4c514e05c52b0fe58142d6ccb3ebd9",
+  "logic_dna": "sha256:6bb716d9035e4813ce1765e5524b0fe5cbe84b4aed0ef299ecc5904324f9b53b",
+  "formula_dna": "sha256:e05cd33dac6afd7d133f5d07128280260735664bd06afda5f9e5cd6595a0c9ad",
+  "context_dna": "merkle:df7bbacd99d490ecf770090377bdd156e6618d4f75aa055963d130c2bad0bedc",
+  "dependency_dna": "merkle:5d0bcb25ff420c174f847b2a5fa0a4cd28444f0669118138ec90bb217569e5a3",
   "proofs": {
     "lean4": {
       "status": "checked",
-      "statement_hash": "sha256:TODO",
-      "proof_hash": "sha256:TODO",
-      "environment_hash": "sha256:TODO",
-      "verified_at": "TODO"
+      "statement_hash": "sha256:e05cd33dac6afd7d133f5d07128280260735664bd06afda5f9e5cd6595a0c9ad",
+      "proof_hash": "sha256:f1a3ae2829d97c899bde150b90c0d354be32b5729b584bd9f1c331b156dad582",
+      "environment_hash": "sha256:2e10e749491d65cac6fab3ffeaaf7dd58015e5a02b05d12d76ac0af74a4e35c9",
+      "verified_at": "2026-06-29T12:55:13Z"
     },
     "isabelle_hol": {
-      "status": "not_attempted"
+      "status": "checked",
+      "statement_hash": "sha256:e05cd33dac6afd7d133f5d07128280260735664bd06afda5f9e5cd6595a0c9ad",
+      "proof_hash": "sha256:a014ac900588dcd5a16cc453c79d2cfe411d72e86cafe47135aad36b9a747c8a",
+      "environment_hash": "sha256:06886f5ff2958816984760e21126f1a61c26b4559b520a3d7cc54a438983588f",
+      "verified_at": "2026-06-29T13:09:36Z"
     },
     "rocq": {
-      "status": "not_attempted"
+      "status": "checked",
+      "statement_hash": "sha256:e05cd33dac6afd7d133f5d07128280260735664bd06afda5f9e5cd6595a0c9ad",
+      "proof_hash": "sha256:86554b9021369ef43329b5b9cc572498914153af20b5bf718b8318c093cd5dd5",
+      "environment_hash": "sha256:2da3bb8f1b345de52145335034202a9abcbc6ced3fe04e58a6c9ce1a9f954a5a",
+      "verified_at": "2026-06-29T13:09:36Z"
     }
   }
 }
