@@ -1,0 +1,9 @@
+[project]
+name = "theorem-dna"
+version = "0.1.0"
+description = "A proof-oriented knowledge ledger for formal philosophy."
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["tools"]
