@@ -54,6 +54,7 @@
           "type": "string",
           "enum": [
             "abstract-formula-language",
+            "action-state-bridge",
             "modal-propositional",
             "higher-order-predicate"
           ]
