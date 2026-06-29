@@ -130,3 +130,15 @@ formalization. The project should register and verify that upstream artifact,
 then reproduce one CPL cut-elimination/decidability example. Reimplementing
 the entire framework would add thousands of lines without strengthening
 Theorem DNA's core model.
+
+Current slice:
+
+- `schema/upstream_artifact.schema.json` and
+  `data/upstream_artifacts/display-calculus-rocq-v0.json` register the
+  upstream Coq/Rocq 8.18.0 display-calculus proof environment described by the
+  source paper;
+- `tools/theorem_dna/upstream_artifact.py` validates cross-file constraints,
+  including that registered artifacts cite known source papers and do not pin
+  revisions before a public locator is known;
+- the CPL cut-elimination/decidability reproduction remains the next
+  integration target after an upstream checkout URL and revision are pinned.
