@@ -1,0 +1,25 @@
+name: Formalization
+description: Track a prover-specific formalization
+title: "[Formalization]: "
+labels: ["type:formalization", "status:needs-review"]
+body:
+  - type: input
+    id: claim_id
+    attributes:
+      label: Claim ID
+    validations:
+      required: true
+  - type: dropdown
+    id: prover
+    attributes:
+      label: Prover
+      options:
+        - Lean 4
+        - Isabelle/HOL
+        - Rocq
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: Formal statement
