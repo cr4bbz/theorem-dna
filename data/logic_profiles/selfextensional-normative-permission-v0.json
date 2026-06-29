@@ -38,13 +38,13 @@
     },
     {
       "id": "classical_instance",
-      "status": "pending",
-      "description": "Concrete Boolean/classical instance is the next acceptance target."
+      "status": "represented",
+      "description": "A Boolean consequence relation is verified as a selfextensional instance in Lean."
     },
     {
       "id": "nonclassical_instance",
-      "status": "pending",
-      "description": "At least one nonclassical instance must be added before this profile becomes active."
+      "status": "represented",
+      "description": "A three-valued preorder consequence relation is verified as a nonclassical selfextensional instance in Lean."
     }
   ],
   "normative_systems": [
@@ -116,7 +116,10 @@
         "TheoremDNA.LogicProfiles.Selfextensional.NormativeSystem",
         "TheoremDNA.LogicProfiles.Selfextensional.simpleOutput",
         "TheoremDNA.LogicProfiles.Selfextensional.negativePermission",
-        "TheoremDNA.LogicProfiles.Selfextensional.dualNegativePermission"
+        "TheoremDNA.LogicProfiles.Selfextensional.dualNegativePermission",
+        "TheoremDNA.LogicProfiles.Selfextensional.booleanConsequence_selfextensional",
+        "TheoremDNA.LogicProfiles.Selfextensional.preorderConsequence_selfextensional",
+        "TheoremDNA.LogicProfiles.Selfextensional.ThreeValuedConsequence"
       ]
     },
     "isabelle_hol": {

@@ -23,7 +23,9 @@ Current slice:
   paper propositions;
 - `provers/lean/TheoremDNA/LogicProfiles/Selfextensional.lean` type-checks the
   abstract consequence relation, closure operator, normative systems, simple
-  output, and the first two permission families.
+  output, the first two permission families, a Boolean/classical
+  selfextensional instance, and a small three-valued preorder/nonclassical
+  selfextensional instance.
 
 Acceptance:
 

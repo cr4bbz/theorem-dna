@@ -75,4 +75,85 @@ theorem dualNegativePermission_left {Formula : Type}
     ¬ forbidden formula := by
   exact permission.left
 
+def BooleanConsequence : Consequence Bool where
+  entails premises conclusion :=
+    (∀ formula, premises formula -> formula = true) -> conclusion = true
+
+def booleanConsequence_selfextensional :
+    SelfextensionalConsequence Bool where
+  entails := BooleanConsequence.entails
+  respectsEquivalence := by
+    intro left right equivalent premises
+    constructor
+    · intro derivesLeft allPremisesTrue
+      exact equivalent.left (by
+        intro formula inSingleton
+        cases inSingleton
+        exact derivesLeft allPremisesTrue)
+    · intro derivesRight allPremisesTrue
+      exact equivalent.right (by
+        intro formula inSingleton
+        cases inSingleton
+        exact derivesRight allPremisesTrue)
+
+structure PreorderFrame (Formula : Type) where
+  le : Formula -> Formula -> Prop
+  refl : ∀ formula, le formula formula
+  trans : ∀ {left middle right}, le left middle -> le middle right -> le left right
+
+def PreorderConsequence {Formula : Type} (frame : PreorderFrame Formula) :
+    Consequence Formula where
+  entails premises conclusion :=
+    ∃ premise, premises premise ∧ frame.le premise conclusion
+
+theorem preorderEntails_singleton {Formula : Type}
+    (frame : PreorderFrame Formula)
+    (left right : Formula)
+    (derives : (PreorderConsequence frame).entails (singleton left) right) :
+    frame.le left right := by
+  rcases derives with ⟨premise, inSingleton, lePremiseRight⟩
+  cases inSingleton
+  exact lePremiseRight
+
+def preorderConsequence_selfextensional {Formula : Type}
+    (frame : PreorderFrame Formula) :
+    SelfextensionalConsequence Formula where
+  entails := (PreorderConsequence frame).entails
+  respectsEquivalence := by
+    intro left right equivalent premises
+    have leftLeRight : frame.le left right :=
+      preorderEntails_singleton frame left right equivalent.left
+    have rightLeLeft : frame.le right left :=
+      preorderEntails_singleton frame right left equivalent.right
+    constructor
+    · intro derivesLeft
+      rcases derivesLeft with ⟨premise, inPremises, lePremiseLeft⟩
+      exact ⟨premise, inPremises, frame.trans lePremiseLeft leftLeRight⟩
+    · intro derivesRight
+      rcases derivesRight with ⟨premise, inPremises, lePremiseRight⟩
+      exact ⟨premise, inPremises, frame.trans lePremiseRight rightLeLeft⟩
+
+inductive ThreeValuedFormula where
+  | bottom
+  | middle
+  | top
+
+def ThreeValuedFrame : PreorderFrame ThreeValuedFormula where
+  le left right :=
+    match left, right with
+    | ThreeValuedFormula.bottom, _ => True
+    | ThreeValuedFormula.middle, ThreeValuedFormula.middle => True
+    | ThreeValuedFormula.middle, ThreeValuedFormula.top => True
+    | ThreeValuedFormula.top, ThreeValuedFormula.top => True
+    | _, _ => False
+  refl := by
+    intro formula
+    cases formula <;> trivial
+  trans := by
+    intro left center right leftLeCenter centerLeRight
+    cases left <;> cases center <;> cases right <;> trivial
+
+def ThreeValuedConsequence : SelfextensionalConsequence ThreeValuedFormula :=
+  preorderConsequence_selfextensional ThreeValuedFrame
+
 end TheoremDNA.LogicProfiles.Selfextensional
