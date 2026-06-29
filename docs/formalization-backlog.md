@@ -14,6 +14,32 @@ formalize normative systems, output operations, and the four permission
 families. This replaces the genesis axiom `Obl w -> Perm w` with an explicit
 logic profile whose assumptions are visible in its DNA.
 
+Current slice:
+
+- `schema/logic_profile.schema.json` validates logic profiles as first-class
+  project objects;
+- `data/logic_profiles/selfextensional-normative-permission-v0.json` records
+  the literature-backed profile, represented permission families, and scoped
+  paper propositions;
+- `provers/lean/TheoremDNA/LogicProfiles/Selfextensional.lean` type-checks the
+  abstract consequence relation, closure operator, normative systems, simple
+  output, the first two permission families, a Boolean/classical
+  selfextensional instance, and a small three-valued preorder/nonclassical
+  selfextensional instance;
+- Proposition 2.6 is represented as a parameterized Lean theorem: under
+  weakening of output, inconsistency-to-contrary entailment, and contrary
+  inconsistency, conditional negative permission is the largest permission system
+  compatible with the obligations of a normative system;
+- Proposition 4.2 is represented as a parameterized Lean theorem equating the
+  generalized compatibility definition of negative permission with absence of
+  contrary obligation under the same explicit weakening and negation/consistency
+  assumptions;
+- Proposition 4.3 is represented as a Lean theorem: internal coherence entails
+  almost inclusion of a normative system in its generalized negative permission
+  system;
+- Proposition 4.4 is represented as a Lean theorem: inclusion of normative
+  systems is antitone for generalized negative permission.
+
 Acceptance:
 
 - definitions type-check in Lean;

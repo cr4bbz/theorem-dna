@@ -41,7 +41,15 @@
 ## M6: Literature-backed Logic Profiles
 
 - [x] Register foundational papers and formalization slices
-- [ ] Formalize selfextensional normative and permission systems
+- [x] Add first-class logic profile schema
+- [x] Add selfextensional normative/permission draft profile
+- [x] Type-check abstract Lean core for consequence, closure, norms, and negative permissions
+- [x] Verify classical instance for selfextensional normative and permission systems
+- [x] Verify at least one nonclassical instance for selfextensional normative and permission systems
+- [x] Represent Proposition 2.6 as a parameterized Lean theorem
+- [x] Represent Proposition 4.2 as a parameterized Lean theorem
+- [x] Represent Proposition 4.3 as a Lean theorem
+- [x] Represent Proposition 4.4 as a Lean theorem
 - [ ] Separate action and state deontic languages with bridge principles
 - [ ] Add a sound logic-import calculus
 - [ ] Add ADeL0 as the first deontic action logic profile
