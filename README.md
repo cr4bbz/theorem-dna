@@ -6,6 +6,14 @@ The goal of this project is to preserve philosophical source material, extract c
 formalize them in proof assistants, verify them, and assign each axiom, definition,
 lemma, theorem, corollary, and formalization a reproducible **Theorem DNA**.
 
+
+░        ░░  ░░░░  ░░        ░░░      ░░░       ░░░        ░░  ░░░░  ░░░░░░░░       ░░░   ░░░  ░░░      ░░
+▒▒▒▒  ▒▒▒▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒▒▒▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒▒▒▒▒   ▒▒   ▒▒▒▒▒▒▒▒  ▒▒▒▒  ▒▒    ▒▒  ▒▒  ▒▒▒▒  ▒
+▓▓▓▓  ▓▓▓▓▓        ▓▓      ▓▓▓▓  ▓▓▓▓  ▓▓       ▓▓▓      ▓▓▓▓        ▓▓▓▓▓▓▓▓  ▓▓▓▓  ▓▓  ▓  ▓  ▓▓  ▓▓▓▓  ▓
+████  █████  ████  ██  ████████  ████  ██  ███  ███  ████████  █  █  ████████  ████  ██  ██    ██        █
+████  █████  ████  ██        ███      ███  ████  ██        ██  ████  ████████       ███  ███   ██  ████  █
+                                                                                                          
+
 ## Core idea
 
 A claim is not merely a sentence. It is a versioned object with:
