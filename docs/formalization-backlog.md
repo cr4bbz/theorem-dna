@@ -98,6 +98,12 @@ Acceptance:
 
 - Formalize ADeL0 before the stronger systems from *Generalizing Deontic
   Action Logic*.
+  Current slice:
+  - `data/logic_profiles/adel0-action-logic-v0.json` records the ADeL0
+    action-deontic profile;
+  - `provers/lean/TheoremDNA/LogicProfiles/ADeL0.lean` type-checks action
+    terms, formula constructors, semantic frame conditions for D1-D4, O1-O5,
+    and B1-B3, plus a tiny satisfiable model.
 - Encode the contrary-to-duty collapse result as a negative regression test,
   followed by both proposed repairs.
 - Add the Hohfeldian system only after relational and agent-indexed claims are

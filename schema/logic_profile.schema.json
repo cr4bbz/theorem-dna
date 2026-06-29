@@ -55,6 +55,7 @@
           "enum": [
             "abstract-formula-language",
             "action-state-bridge",
+            "adel0-action-logic",
             "logic-import-calculus",
             "modal-propositional",
             "higher-order-predicate"
