@@ -291,6 +291,16 @@ $report = [pscustomobject]@{
 New-Item -ItemType Directory -Force -Path $reportDirectory | Out-Null
 $reportPath = Join-Path $reportDirectory "last-report.json"
 $report | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $reportPath -Encoding UTF8
+$htmlReportPath = Join-Path $reportDirectory "last-report.html"
+
+try {
+    & $venvPython -B tools\cli.py render-verification-report $reportPath `
+        --output-dir $reportDirectory | Out-Null
+}
+catch {
+    Write-Host "Could not render HTML report: $($_.Exception.Message)" `
+        -ForegroundColor Yellow
+}
 
 Write-Host ""
 Write-Host "THEOREM DNA VERIFICATION" -ForegroundColor White
@@ -302,6 +312,9 @@ foreach ($result in $results) {
 }
 Write-Host ("=" * 58)
 Write-Host "Report: $reportPath"
+if (Test-Path -LiteralPath $htmlReportPath) {
+    Write-Host "HTML report: $htmlReportPath"
+}
 
 if ($overall -eq "PASS") {
     Write-Host "OVERALL RESULT: PASS" -ForegroundColor Green
