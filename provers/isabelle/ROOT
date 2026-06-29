@@ -1,0 +1,4 @@
+session TheoremDNA = HOL +
+  theories
+    "TheoremDNA/Deontic"
+    "TheoremDNA/ObligationPermission"
