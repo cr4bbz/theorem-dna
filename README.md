@@ -60,6 +60,14 @@ python tools/cli.py generate-dna \
   examples/deontic_obligation_permission/dna.json
 ```
 
+Generate the first derived corollary:
+
+```bash
+python tools/cli.py generate-corollary \
+  data/corollaries/not-permitted-implies-not-obligatory.manifest.json \
+  data/corollaries/not-permitted-implies-not-obligatory.json
+```
+
 Lean build:
 
 ```bash

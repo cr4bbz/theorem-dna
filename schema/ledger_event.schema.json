@@ -1,16 +1,66 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "LedgerEvent",
+  "$id": "https://theorem-dna.org/schema/ledger_event.schema.json",
+  "title": "Ledger Event v0.1",
   "type": "object",
-  "required": ["event_type", "payload_hash", "event_hash"],
+  "required": [
+    "schema_version",
+    "event_type",
+    "target",
+    "payload_hash",
+    "timestamp",
+    "actor",
+    "event_hash"
+  ],
   "properties": {
-    "event_type": { "type": "string" },
-    "target": { "type": "string" },
-    "previous_event_hash": { "type": ["string", "null"] },
-    "payload_hash": { "type": "string" },
-    "event_hash": { "type": "string" },
-    "timestamp": { "type": "string" },
-    "actor": { "type": "string" }
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "GENESIS",
+        "PROOF_VERIFIED",
+        "COROLLARY_ACCEPTED"
+      ]
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "previous_event_hash": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/sha256"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "payload_hash": {
+      "$ref": "#/$defs/sha256"
+    },
+    "event_hash": {
+      "$ref": "#/$defs/sha256"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
   },
   "additionalProperties": false
 }

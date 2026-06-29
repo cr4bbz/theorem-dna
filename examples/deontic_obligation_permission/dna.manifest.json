@@ -16,6 +16,7 @@
     "lean4": {
       "status": "checked",
       "file": "provers/lean/TheoremDNA/Deontic.lean",
+      "proof_hash": "sha256:f1a3ae2829d97c899bde150b90c0d354be32b5729b584bd9f1c331b156dad582",
       "environment": {
         "prover": "lean4",
         "version": "4.31.0",

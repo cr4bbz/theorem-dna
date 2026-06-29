@@ -54,3 +54,23 @@ def test_formalizations_match_schema():
     for path in (ROOT / "data/formalizations").glob("*.json"):
         value = json.loads(path.read_text(encoding="utf-8"))
         jsonschema.validate(value, schema, format_checker=FormatChecker())
+
+
+def test_corollaries_match_schema():
+    schema = json.loads(
+        (ROOT / "schema/corollary.schema.json").read_text(encoding="utf-8")
+    )
+    for path in (ROOT / "data/corollaries").glob("*.json"):
+        if ".manifest." in path.name or ".dna." in path.name:
+            continue
+        value = json.loads(path.read_text(encoding="utf-8"))
+        jsonschema.validate(value, schema, format_checker=FormatChecker())
+
+
+def test_ledger_events_match_schema():
+    schema = json.loads(
+        (ROOT / "schema/ledger_event.schema.json").read_text(encoding="utf-8")
+    )
+    for path in (ROOT / "ledger/events").glob("*.json"):
+        value = json.loads(path.read_text(encoding="utf-8"))
+        jsonschema.validate(value, schema, format_checker=FormatChecker())

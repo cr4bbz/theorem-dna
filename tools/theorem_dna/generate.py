@@ -56,7 +56,10 @@ def generate_dna(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
             proof.update(
                 {
                     "statement_hash": hash_text(formula),
-                    "proof_hash": hash_text(proof_path.read_text(encoding="utf-8")),
+                    "proof_hash": descriptor.get(
+                        "proof_hash",
+                        hash_text(proof_path.read_text(encoding="utf-8")),
+                    ),
                     "environment_hash": hash_json(descriptor["environment"]),
                     "verified_at": descriptor["verified_at"],
                 }

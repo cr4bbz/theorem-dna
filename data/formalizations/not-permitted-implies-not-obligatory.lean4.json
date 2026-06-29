@@ -1,0 +1,9 @@
+{
+  "id": "formalization:not-permitted-implies-not-obligatory:lean4:v1",
+  "claim_id": "corollary:not-permitted-implies-not-obligatory:v1",
+  "prover": "lean4",
+  "file": "provers/lean/TheoremDNA/Deontic.lean",
+  "declaration_name": "TheoremDNA.Deontic.not_permission_implies_not_obligation",
+  "statement": "∀ w, ¬ Perm w → ¬ Obl w",
+  "proof_status": "checked"
+}

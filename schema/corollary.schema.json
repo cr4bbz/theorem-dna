@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://theorem-dna.org/schema/corollary.schema.json",
+  "title": "Generated Corollary v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "kind",
+    "status",
+    "generated_by",
+    "premises",
+    "informal",
+    "formula",
+    "verifications",
+    "dna_file"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "const": "corollary"
+    },
+    "status": {
+      "enum": [
+        "candidate",
+        "accepted"
+      ]
+    },
+    "generated_by": {
+      "type": "object",
+      "required": [
+        "generator",
+        "version",
+        "rule"
+      ],
+      "properties": {
+        "generator": {
+          "const": "theorem-dna"
+        },
+        "version": {
+          "const": "0.1.0"
+        },
+        "rule": {
+          "const": "contraposition"
+        }
+      },
+      "additionalProperties": false
+    },
+    "premises": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "informal": {
+      "type": "string"
+    },
+    "formula": {
+      "type": "string"
+    },
+    "verifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "prover",
+          "declaration_name",
+          "status"
+        ],
+        "properties": {
+          "prover": {
+            "enum": [
+              "lean4",
+              "isabelle_hol",
+              "rocq"
+            ]
+          },
+          "declaration_name": {
+            "type": "string"
+          },
+          "status": {
+            "const": "checked"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dna_file": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "accepted"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "verifications": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

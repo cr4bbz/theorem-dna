@@ -1,0 +1,17 @@
+{
+  "id": "corollary:not-permitted-implies-not-obligatory:v1",
+  "rule": "contraposition",
+  "premise_claim_id": "claim:obligation-implies-permission:v1",
+  "variable": "w",
+  "antecedent": "Obl w",
+  "consequent": "Perm w",
+  "informal": "Anything that is not permitted is not obligatory.",
+  "dna_file": "data/corollaries/not-permitted-implies-not-obligatory.dna.json",
+  "verifications": [
+    {
+      "prover": "lean4",
+      "declaration_name": "TheoremDNA.Deontic.not_permission_implies_not_obligation",
+      "status": "checked"
+    }
+  ]
+}
