@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+
+# Lean
+.provers/
+lake-packages/
+.lake/
+*.olean
+*.ilean
+
+# Isabelle
+heaps/
+browser_info/
+
+# Rocq / Coq
+*.vo
+*.vok
+*.vos
+*.glob
+.coq-native/
+_build/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
