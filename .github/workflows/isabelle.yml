@@ -1,0 +1,24 @@
+name: Isabelle
+
+on:
+  push:
+    paths:
+      - "provers/isabelle/**"
+      - ".github/workflows/isabelle.yml"
+  pull_request:
+    paths:
+      - "provers/isabelle/**"
+      - ".github/workflows/isabelle.yml"
+  workflow_dispatch:
+
+jobs:
+  isabelle:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Placeholder
+        run: |
+          echo "TODO: install pinned Isabelle version"
+          echo "Then run: isabelle build -D provers/isabelle TheoremDNA"
