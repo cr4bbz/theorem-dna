@@ -96,3 +96,12 @@ def test_logic_profiles_match_schema():
     for path in (ROOT / "data/logic_profiles").glob("*.json"):
         value = json.loads(path.read_text(encoding="utf-8"))
         jsonschema.validate(value, schema, format_checker=FormatChecker())
+
+
+def test_import_graphs_match_schema():
+    schema = json.loads(
+        (ROOT / "schema/import_graph.schema.json").read_text(encoding="utf-8")
+    )
+    for path in (ROOT / "data/imports").glob("*.json"):
+        value = json.loads(path.read_text(encoding="utf-8"))
+        jsonschema.validate(value, schema, format_checker=FormatChecker())

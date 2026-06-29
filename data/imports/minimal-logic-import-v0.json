@@ -1,0 +1,27 @@
+{
+  "schema_version": "0.1.0",
+  "id": "minimal-logic-import-v0",
+  "logics": [
+    {
+      "id": "source-minimal-v0",
+      "version": "0.1.0"
+    },
+    {
+      "id": "target-minimal-v0",
+      "version": "0.1.0"
+    }
+  ],
+  "imports": [
+    {
+      "id": "source-to-target-v0",
+      "source": "source-minimal-v0",
+      "target": "target-minimal-v0",
+      "mappings": [
+        {
+          "source_symbol": "truth",
+          "target_symbol": "truth"
+        }
+      ]
+    }
+  ]
+}

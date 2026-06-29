@@ -7,6 +7,7 @@ from pathlib import Path
 from theorem_dna.corollary import generate_contrapositive
 from theorem_dna.generate import write_generated_dna
 from theorem_dna.hash import hash_json
+from theorem_dna.import_graph import validate_import_graph
 from theorem_dna.ledger import LedgerEvent
 from theorem_dna.signing import generate_keypair, sign_event, verify_signed_event
 
@@ -51,6 +52,9 @@ def main() -> None:
     verify = sub.add_parser("verify-event")
     verify.add_argument("event")
     verify.add_argument("public_key")
+
+    import_graph = sub.add_parser("validate-import-graph")
+    import_graph.add_argument("graph")
 
     args = parser.parse_args()
 
@@ -113,6 +117,10 @@ def main() -> None:
         if not verify_signed_event(value, Path(args.public_key)):
             raise SystemExit("signature verification failed")
         print("signature valid")
+    elif args.cmd == "validate-import-graph":
+        value = json.loads(Path(args.graph).read_text(encoding="utf-8"))
+        validate_import_graph(value)
+        print("import graph valid")
 
 
 if __name__ == "__main__":
