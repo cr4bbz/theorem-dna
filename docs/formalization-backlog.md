@@ -106,6 +106,13 @@ Acceptance:
     and B1-B3, plus a tiny satisfiable model.
 - Encode the contrary-to-duty collapse result as a negative regression test,
   followed by both proposed repairs.
+  Current slice:
+  - `data/logic_profiles/contrary-to-duty-regressions-v0.json` records the CTD
+    collapse regression profile;
+  - `provers/lean/TheoremDNA/LogicProfiles/ContraryToDuty.lean` type-checks
+    mutual genericity, conditions 5(b), 5(d), 5(e), the collapse pattern from
+    Theorem 1.2, and separated weak/strong repair packages corresponding to
+    Theorems 2.1 and 2.2.
 - Add the Hohfeldian system only after relational and agent-indexed claims are
   supported by the schema.
 
