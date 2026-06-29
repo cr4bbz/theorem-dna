@@ -17,10 +17,18 @@
       "verified_at": "2026-06-29T12:55:13Z"
     },
     "isabelle_hol": {
-      "status": "not_attempted"
+      "status": "checked",
+      "statement_hash": "sha256:e05cd33dac6afd7d133f5d07128280260735664bd06afda5f9e5cd6595a0c9ad",
+      "proof_hash": "sha256:a014ac900588dcd5a16cc453c79d2cfe411d72e86cafe47135aad36b9a747c8a",
+      "environment_hash": "sha256:06886f5ff2958816984760e21126f1a61c26b4559b520a3d7cc54a438983588f",
+      "verified_at": "2026-06-29T13:09:36Z"
     },
     "rocq": {
-      "status": "not_attempted"
+      "status": "checked",
+      "statement_hash": "sha256:e05cd33dac6afd7d133f5d07128280260735664bd06afda5f9e5cd6595a0c9ad",
+      "proof_hash": "sha256:86554b9021369ef43329b5b9cc572498914153af20b5bf718b8318c093cd5dd5",
+      "environment_hash": "sha256:2da3bb8f1b345de52145335034202a9abcbc6ced3fe04e58a6c9ce1a9f954a5a",
+      "verified_at": "2026-06-29T13:09:36Z"
     }
   }
 }

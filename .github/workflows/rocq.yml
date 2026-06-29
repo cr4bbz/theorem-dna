@@ -14,11 +14,27 @@ on:
 jobs:
   rocq:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Placeholder
-        run: |
-          echo "TODO: configure rocq-prover/docker-opam-action"
-          echo "Then compile theories in provers/rocq"
+      - name: Build theories with Rocq 9.2
+        uses: rocq-prover/docker-opam-action@v1.5.2
+        with:
+          custom_image: "rocq/rocq-prover:9.2@sha256:29262a1a00095990b25b2f511147671bdda260f3e836a0e94737f75d5c8fb9a1"
+          install: ""
+          before_script: |
+            sudo chown -R 1000:1000 provers/rocq
+          script: |
+            startGroup "Build TheoremDNA theories"
+              cd provers/rocq
+              rocq makefile -f _RocqProject -o Makefile
+              make -f Makefile -j2
+            endGroup
+          uninstall: ""
+
+      - name: Restore workspace permissions
+        if: ${{ always() }}
+        run: sudo chown -R 1001:116 provers/rocq

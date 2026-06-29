@@ -15,10 +15,10 @@
 
 ## M2: Theorem DNA v0.1
 
-- [ ] Stabilize JSON schema
-- [ ] Define canonical hash format
-- [ ] Implement Merkle root over dependencies
-- [ ] Add environment DNA
+- [x] Stabilize JSON schema
+- [x] Define canonical hash format
+- [x] Implement Merkle root over dependencies
+- [x] Add environment DNA
 
 ## M3: Ledger v0.1
 
@@ -28,9 +28,9 @@
 
 ## M4: Isabelle/Rocq Mirrors
 
-- [ ] Mirror minimal deontic example in Isabelle/HOL
-- [ ] Mirror minimal deontic example in Rocq
-- [ ] Add separate CI jobs
+- [x] Mirror minimal deontic example in Isabelle/HOL
+- [x] Mirror minimal deontic example in Rocq
+- [x] Add separate CI jobs
 
 ## M5: Corollary Generator
 

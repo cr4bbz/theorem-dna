@@ -1,0 +1,9 @@
+{
+  "id": "formalization:obligation-implies-permission:isabelle:v1",
+  "claim_id": "claim:obligation-implies-permission:v1",
+  "prover": "isabelle_hol",
+  "file": "provers/isabelle/TheoremDNA/ObligationPermission.thy",
+  "declaration_name": "deontic.permission_from_obligation",
+  "statement": "∀ w, Obl w ⟶ Perm w",
+  "proof_status": "checked"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "formalization:obligation-implies-permission:rocq:v1",
+  "claim_id": "claim:obligation-implies-permission:v1",
+  "prover": "rocq",
+  "file": "provers/rocq/theories/Deontic.v",
+  "declaration_name": "Deontic.permission_from_obligation",
+  "statement": "forall w : World, Obl w -> Perm w",
+  "proof_status": "checked"
+}

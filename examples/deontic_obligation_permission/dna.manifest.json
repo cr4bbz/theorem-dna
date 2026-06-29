@@ -27,10 +27,26 @@
       "verified_at": "2026-06-29T12:55:13Z"
     },
     "isabelle_hol": {
-      "status": "not_attempted"
+      "status": "checked",
+      "file": "provers/isabelle/TheoremDNA/ObligationPermission.thy",
+      "environment": {
+        "prover": "isabelle_hol",
+        "version": "Isabelle2025-2",
+        "image": "makarius/isabelle@sha256:9bd33b183c399327c5d554fc8cde27c29b5d2b20cdc6fe7a604caa3f951018fc",
+        "command": "isabelle build -D provers/isabelle TheoremDNA"
+      },
+      "verified_at": "2026-06-29T13:09:36Z"
     },
     "rocq": {
-      "status": "not_attempted"
+      "status": "checked",
+      "file": "provers/rocq/theories/Deontic.v",
+      "environment": {
+        "prover": "rocq",
+        "version": "9.2.0",
+        "image": "rocq/rocq-prover@sha256:29262a1a00095990b25b2f511147671bdda260f3e836a0e94737f75d5c8fb9a1",
+        "command": "rocq makefile -f _RocqProject -o Makefile && make -f Makefile -j2"
+      },
+      "verified_at": "2026-06-29T13:09:36Z"
     }
   }
 }

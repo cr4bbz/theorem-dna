@@ -24,6 +24,10 @@ browser_info/
 *.glob
 .coq-native/
 _build/
+provers/rocq/Makefile
+provers/rocq/.Makefile.d
+provers/rocq/Makefile.conf
+provers/rocq/theories/.*.aux
 
 # OS/editor
 .DS_Store
